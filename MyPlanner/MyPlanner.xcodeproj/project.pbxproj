@@ -20,6 +20,10 @@
 		7401D2362A24DD7E00F2C7CA /* ThemeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2352A24DD7E00F2C7CA /* ThemeFont.swift */; };
 		7401D2382A24F2DF00F2C7CA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2372A24F2DF00F2C7CA /* LoginView.swift */; };
 		7401D23B2A25BFB100F2C7CA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D23A2A25BFB100F2C7CA /* MainViewController.swift */; };
+		7401D2402A266BC000F2C7CA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D23F2A266BC000F2C7CA /* SettingsViewController.swift */; };
+		7401D2422A266BE500F2C7CA /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2412A266BE500F2C7CA /* GoalsViewController.swift */; };
+		7401D2442A266C0300F2C7CA /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2432A266C0300F2C7CA /* SummaryViewController.swift */; };
+		7401D2472A266C4400F2C7CA /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2462A266C4400F2C7CA /* ReminderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		7401D2352A24DD7E00F2C7CA /* ThemeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeFont.swift; sourceTree = "<group>"; };
 		7401D2372A24F2DF00F2C7CA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7401D23A2A25BFB100F2C7CA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7401D23F2A266BC000F2C7CA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7401D2412A266BE500F2C7CA /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
+		7401D2432A266C0300F2C7CA /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		7401D2462A266C4400F2C7CA /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,10 @@
 		7401D2292A24D9C500F2C7CA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7401D2452A266C3700F2C7CA /* Reminder */,
+				7401D23E2A26695000F2C7CA /* Settings */,
+				7401D23D2A26641200F2C7CA /* Goals */,
+				7401D23C2A2663F000F2C7CA /* Summary */,
 				7401D2392A25BF9D00F2C7CA /* Main */,
 				7401D22C2A24DA0200F2C7CA /* Login */,
 			);
@@ -193,6 +205,38 @@
 				7401D23A2A25BFB100F2C7CA /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		7401D23C2A2663F000F2C7CA /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				7401D2432A266C0300F2C7CA /* SummaryViewController.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		7401D23D2A26641200F2C7CA /* Goals */ = {
+			isa = PBXGroup;
+			children = (
+				7401D2412A266BE500F2C7CA /* GoalsViewController.swift */,
+			);
+			path = Goals;
+			sourceTree = "<group>";
+		};
+		7401D23E2A26695000F2C7CA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7401D23F2A266BC000F2C7CA /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		7401D2452A266C3700F2C7CA /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				7401D2462A266C4400F2C7CA /* ReminderViewController.swift */,
+			);
+			path = Reminder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,10 +373,14 @@
 				7401D2382A24F2DF00F2C7CA /* LoginView.swift in Sources */,
 				7401D2012A24D6F800F2C7CA /* MyPlanner.xcdatamodeld in Sources */,
 				7401D1FB2A24D6F800F2C7CA /* ViewController.swift in Sources */,
+				7401D2442A266C0300F2C7CA /* SummaryViewController.swift in Sources */,
 				7401D1F72A24D6F800F2C7CA /* AppDelegate.swift in Sources */,
 				7401D2302A24DA3200F2C7CA /* LoginViewController.swift in Sources */,
 				7401D1F92A24D6F800F2C7CA /* SceneDelegate.swift in Sources */,
+				7401D2472A266C4400F2C7CA /* ReminderViewController.swift in Sources */,
 				7401D23B2A25BFB100F2C7CA /* MainViewController.swift in Sources */,
+				7401D2402A266BC000F2C7CA /* SettingsViewController.swift in Sources */,
+				7401D2422A266BE500F2C7CA /* GoalsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
