@@ -64,6 +64,8 @@ class LoginViewController: UIViewController {
     }
     
     @objc func loginAction() {
-        
+        let mainScreen = MainViewController()
+        mainScreen.modalPresentationStyle = .fullScreen
+        present(mainScreen,animated: true)
     }
 }
