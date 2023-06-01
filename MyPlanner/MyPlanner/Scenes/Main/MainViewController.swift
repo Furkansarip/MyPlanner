@@ -17,6 +17,8 @@ class MainViewController: UITabBarController {
     }
     
     private func setupTabs() {
+        
+        print(self.tabBar.frame.size.height)
         let summaryVC = SummaryViewController()
         let goalsVC = GoalsViewController()
         let reminderVC = ReminderViewController()
