@@ -7,9 +7,10 @@
 
 import UIKit
 
-class SummaryViewController: UIViewController {
+class SummaryViewController: BaseViewController {
 
     let summaryTableView = UITableView(frame: .zero)
+    let testView = UIView(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +21,22 @@ class SummaryViewController: UIViewController {
     
     private func configureTableView() {
         view.addSubview(summaryTableView)
+        view.addSubview(testView)
+        testView.backgroundColor = .red
         summaryTableView.dataSource = self
         summaryTableView.delegate = self
         summaryTableView.translatesAutoresizingMaskIntoConstraints = false
+        testView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             summaryTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             summaryTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             summaryTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            summaryTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            summaryTableView.bottomAnchor.constraint(equalTo: testView.topAnchor),
+            
+            testView.heightAnchor.constraint(equalToConstant: 300),
+            testView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            testView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            testView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
 
@@ -40,7 +49,7 @@ extension SummaryViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,8 +58,13 @@ extension SummaryViewController : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section 1"
+        if section == 0 {
+            return "Yaklaşanlar"
+        } else {
+            return "Hedefler"
+        }
     }
+    
     
     
 }
