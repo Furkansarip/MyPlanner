@@ -11,7 +11,8 @@ class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .systemBackground
+        
         title = "Main"
         setupTabs()
     }
@@ -22,7 +23,6 @@ class MainViewController: UITabBarController {
         let goalsVC = GoalsViewController()
         let reminderVC = ReminderViewController()
         
-        UITabBar.appearance().backgroundColor = .systemBackground
         let tag1 = UINavigationController(rootViewController: summaryVC)
         let tag2 = UINavigationController(rootViewController: goalsVC)
         let tag3 = UINavigationController(rootViewController: reminderVC)

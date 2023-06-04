@@ -11,18 +11,18 @@ class SummaryViewController: BaseViewController {
 
     let summaryTableView = UITableView(frame: .zero)
     let testView = UIView(frame: .zero)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Summary"
         view.backgroundColor = .systemBackground
         configureTableView()
+        
     }
     
     private func configureTableView() {
         view.addSubview(summaryTableView)
         view.addSubview(testView)
-        testView.backgroundColor = .red
+        
         summaryTableView.dataSource = self
         summaryTableView.delegate = self
         summaryTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +45,7 @@ class SummaryViewController: BaseViewController {
 extension SummaryViewController : UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 10
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,8 +63,12 @@ extension SummaryViewController : UITableViewDelegate, UITableViewDataSource {
         } else {
             return "Hedefler"
         }
+        
     }
     
-    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header:UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = .red
+    }
     
 }
