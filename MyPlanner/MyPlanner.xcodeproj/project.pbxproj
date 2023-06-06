@@ -28,6 +28,8 @@
 		7401D24F2A2B555400F2C7CA /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7401D24D2A2B555400F2C7CA /* AddViewController.xib */; };
 		7401D2532A2C9CB400F2C7CA /* PlannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2522A2C9CB400F2C7CA /* PlannerModel.swift */; };
 		7401D2562A2CAA5700F2C7CA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2552A2CAA5700F2C7CA /* UIColor+Ext.swift */; };
+		7401D2582A2E4D1B00F2C7CA /* PlannerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2572A2E4D1B00F2C7CA /* PlannerTextField.swift */; };
+		7401D25A2A2FA22300F2C7CA /* PlannerTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2592A2FA22300F2C7CA /* PlannerTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		7401D24D2A2B555400F2C7CA /* AddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
 		7401D2522A2C9CB400F2C7CA /* PlannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerModel.swift; sourceTree = "<group>"; };
 		7401D2552A2CAA5700F2C7CA /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		7401D2572A2E4D1B00F2C7CA /* PlannerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerTextField.swift; sourceTree = "<group>"; };
+		7401D2592A2FA22300F2C7CA /* PlannerTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				7401D2352A24DD7E00F2C7CA /* ThemeFont.swift */,
+				7401D2572A2E4D1B00F2C7CA /* PlannerTextField.swift */,
+				7401D2592A2FA22300F2C7CA /* PlannerTextView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7401D25A2A2FA22300F2C7CA /* PlannerTextView.swift in Sources */,
 				7401D24A2A2B4B5500F2C7CA /* BaseViewController.swift in Sources */,
 				7401D2362A24DD7E00F2C7CA /* ThemeFont.swift in Sources */,
 				7401D2382A24F2DF00F2C7CA /* LoginView.swift in Sources */,
@@ -424,6 +431,7 @@
 				7401D1F72A24D6F800F2C7CA /* AppDelegate.swift in Sources */,
 				7401D2302A24DA3200F2C7CA /* LoginViewController.swift in Sources */,
 				7401D1F92A24D6F800F2C7CA /* SceneDelegate.swift in Sources */,
+				7401D2582A2E4D1B00F2C7CA /* PlannerTextField.swift in Sources */,
 				7401D2472A266C4400F2C7CA /* ReminderViewController.swift in Sources */,
 				7401D23B2A25BFB100F2C7CA /* MainViewController.swift in Sources */,
 				7401D2562A2CAA5700F2C7CA /* UIColor+Ext.swift in Sources */,

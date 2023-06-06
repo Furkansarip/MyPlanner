@@ -19,8 +19,9 @@ class BaseViewController: UIViewController {
     
     @objc func addPage() {
         let addPlanPage = AddViewController()
-        addPlanPage.modalPresentationStyle = .formSheet
-        present(addPlanPage,animated: true)
+       /* addPlanPage.modalPresentationStyle = .fullScreen
+        present(addPlanPage,animated: true) */
+        navigationController?.pushViewController(addPlanPage, animated: true)
     }
 
 

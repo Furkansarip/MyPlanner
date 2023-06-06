@@ -9,23 +9,23 @@ import UIKit
 
 class AddViewController: UIViewController {
 
-    let titleTextField = UITextField()
-    let descriptionTextField = UITextField()
-    let typeTextField = UITextField()
+    let titleTextField = PlannerTextField()
+    let dateTextField = PlannerTextField()
+    let typeTextField = PlannerTextField(frame: CGRect(x: 0, y: 0, width: 35, height: 65))
+    let dummyField = PlannerTextView()
     let addButton = UIButton(type: .system)
     let typePicker = UIPickerView()
-    let typeArray = ["Money 💰","Health 🩺","Life 🏡"]
+    let typeArray = ["Choose 🕹","Money 💰","Health 🩺","Life 🏡"]
     var data = [PlannerModel]()
     private lazy var stackView: UIStackView = {
       let stackView = UIStackView(arrangedSubviews: [
       titleTextField,
-      descriptionTextField,
-      typeTextField
+      dateTextField,
+      typeTextField,
+      dummyField
       ])
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        
-        stackView.backgroundColor = .blue
+        stackView.spacing = 8
         return stackView
     }()
     
@@ -49,19 +49,21 @@ class AddViewController: UIViewController {
         view.addSubview(addButton)
         titleTextField.placeholder = "Title"
         typeTextField.placeholder = "Type"
-        descriptionTextField.placeholder = "Description"
+        dateTextField.placeholder = "Date"
         addButton.setTitle("Add", for: .normal)
         addButton.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         addButton.translatesAutoresizingMaskIntoConstraints = false
-        let padding: CGFloat = 5
+        let padding: CGFloat = 8
         NSLayoutConstraint.activate([
-           
-            stackView.heightAnchor.constraint(equalToConstant: 300),
+            titleTextField.heightAnchor.constraint(equalToConstant: 35),
+            typeTextField.heightAnchor.constraint(equalToConstant: 35),
+            dateTextField.heightAnchor.constraint(equalToConstant: 35),
+            //stackView.heightAnchor.constraint(equalToConstant: 300),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: padding),
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: padding),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -padding),
-            stackView.bottomAnchor.constraint(equalTo: addButton.topAnchor,constant: 10),
+            stackView.bottomAnchor.constraint(equalTo: addButton.topAnchor,constant: -30),
             addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -padding)
             
@@ -90,7 +92,7 @@ class AddViewController: UIViewController {
     
     @objc func addButtonAction() {
         //guard let title = titleTextField.text else { return }
-        let object = PlannerModel(title: titleTextField.text!, description: descriptionTextField.text!, type: typeTextField.text!)
+        let object = PlannerModel(title: titleTextField.text!, description: dateTextField.text!, type: typeTextField.text!)
         data.append(object)
         print(data)
     }
