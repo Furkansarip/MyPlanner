@@ -13,8 +13,16 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addPage))
+        
     }
     
+    @objc func addPage() {
+        let addPlanPage = AddViewController()
+       /* addPlanPage.modalPresentationStyle = .fullScreen
+        present(addPlanPage,animated: true) */
+        navigationController?.pushViewController(addPlanPage, animated: true)
+    }
 
 
 }
