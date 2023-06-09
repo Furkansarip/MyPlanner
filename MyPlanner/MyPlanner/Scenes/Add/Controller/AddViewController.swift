@@ -15,6 +15,7 @@ class AddViewController: UIViewController {
     let dummyField = PlannerTextView()
     let addButton = UIButton(type: .system)
     let typePicker = UIPickerView()
+    let datePicker = UIDatePicker()
     let typeArray = ["Choose 🕹","Money 💰","Health 🩺","Life 🏡"]
     var data = [PlannerModel]()
     private lazy var stackView: UIStackView = {
@@ -42,6 +43,12 @@ class AddViewController: UIViewController {
         typeTextField.inputView = typePicker
         typePicker.delegate = self
         typePicker.dataSource = self
+        
+        dateTextField.inputView = datePicker
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.timeZone = TimeZone.current
+        
     }
     
     private func layout() {
@@ -59,11 +66,12 @@ class AddViewController: UIViewController {
             titleTextField.heightAnchor.constraint(equalToConstant: 35),
             typeTextField.heightAnchor.constraint(equalToConstant: 35),
             dateTextField.heightAnchor.constraint(equalToConstant: 35),
-            //stackView.heightAnchor.constraint(equalToConstant: 300),
+            stackView.heightAnchor.constraint(equalToConstant: 300),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: padding),
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: padding),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -padding),
-            stackView.bottomAnchor.constraint(equalTo: addButton.topAnchor,constant: -30),
+            
+            //addButton.topAnchor.constraint(equalTo: stackView.bottomAnchor),
             addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -padding)
             
@@ -83,10 +91,19 @@ class AddViewController: UIViewController {
        
         toolbar.isUserInteractionEnabled = true
         typeTextField.inputAccessoryView = toolbar
+        dateTextField.inputAccessoryView = toolbar
         
     }
     
     @objc func dismissPicker() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, h:mm a"
+        let date = dateFormatter.string(from: datePicker.date)
+        dateTextField.text = "\(date)"
+        view.endEditing(true)
+    }
+    
+    @objc func done() {
         view.endEditing(true)
     }
     
