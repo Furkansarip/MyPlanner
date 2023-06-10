@@ -17,7 +17,7 @@ final class PlannerTextField: UITextField {
         self.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         self.leftView = paddingView
         self.leftViewMode = .always
-        self.accessibilityPath?.lineWidth = 30
+        self.autocorrectionType = .no
     }
     
     required init?(coder: NSCoder) {
