@@ -8,15 +8,15 @@
 import UIKit
 
 class SummaryViewController: BaseViewController {
-
+    
     let summaryTableView = UITableView(frame: .zero)
     let testView = UIView(frame: .zero)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Summary"
         view.backgroundColor = .systemBackground
         configureTableView()
-        
     }
     
     private func configureTableView() {
@@ -39,7 +39,7 @@ class SummaryViewController: BaseViewController {
             testView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
-
+    
 }
 
 extension SummaryViewController : UITableViewDelegate, UITableViewDataSource {

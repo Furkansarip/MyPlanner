@@ -13,6 +13,7 @@ class GoalsViewController: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Goals"
+        indicator.startAnimating()
     }
 
 }

@@ -121,7 +121,7 @@ class AddViewController: UIViewController {
     @objc func addButtonAction() {
         
         ReminderDataManager.shared.saveReminder(title: titleTextField.text!, date: dateTextField.text!, reminderType: reminderTypeTextField.text!, type: typeTextField.text!, description: descriptionTextField.text!)
-        ReminderDataManager.shared.getReminders()
+        navigationController?.pushViewController(ReminderViewController(), animated: true)
     }
 
 }
