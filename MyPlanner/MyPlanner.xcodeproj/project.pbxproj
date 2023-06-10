@@ -30,6 +30,8 @@
 		7401D2562A2CAA5700F2C7CA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2552A2CAA5700F2C7CA /* UIColor+Ext.swift */; };
 		7401D2582A2E4D1B00F2C7CA /* PlannerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2572A2E4D1B00F2C7CA /* PlannerTextField.swift */; };
 		7401D25A2A2FA22300F2C7CA /* PlannerTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2592A2FA22300F2C7CA /* PlannerTextView.swift */; };
+		7401D25F2A34964300F2C7CA /* ReminderDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D25E2A34964300F2C7CA /* ReminderDataManager.swift */; };
+		7401D2622A349CD900F2C7CA /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2612A349CD900F2C7CA /* ReminderModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		7401D2552A2CAA5700F2C7CA /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		7401D2572A2E4D1B00F2C7CA /* PlannerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerTextField.swift; sourceTree = "<group>"; };
 		7401D2592A2FA22300F2C7CA /* PlannerTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerTextView.swift; sourceTree = "<group>"; };
+		7401D25E2A34964300F2C7CA /* ReminderDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDataManager.swift; sourceTree = "<group>"; };
+		7401D2612A349CD900F2C7CA /* ReminderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 		7401D2312A24DA4200F2C7CA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7401D25B2A3495E300F2C7CA /* DataManager */,
 				7401D2482A2B4B4B00F2C7CA /* Base */,
 				7401D2322A24DAFD00F2C7CA /* Components */,
 			);
@@ -242,6 +247,7 @@
 		7401D2452A266C3700F2C7CA /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				7401D2602A349CCE00F2C7CA /* Model */,
 				7401D2462A266C4400F2C7CA /* ReminderViewController.swift */,
 			);
 			path = Reminder;
@@ -287,6 +293,22 @@
 				7401D2552A2CAA5700F2C7CA /* UIColor+Ext.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		7401D25B2A3495E300F2C7CA /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				7401D25E2A34964300F2C7CA /* ReminderDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		7401D2602A349CCE00F2C7CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7401D2612A349CD900F2C7CA /* ReminderModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,12 +443,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7401D25A2A2FA22300F2C7CA /* PlannerTextView.swift in Sources */,
+				7401D25F2A34964300F2C7CA /* ReminderDataManager.swift in Sources */,
 				7401D24A2A2B4B5500F2C7CA /* BaseViewController.swift in Sources */,
 				7401D2362A24DD7E00F2C7CA /* ThemeFont.swift in Sources */,
 				7401D2382A24F2DF00F2C7CA /* LoginView.swift in Sources */,
 				7401D2012A24D6F800F2C7CA /* MyPlanner.xcdatamodeld in Sources */,
 				7401D2532A2C9CB400F2C7CA /* PlannerModel.swift in Sources */,
 				7401D1FB2A24D6F800F2C7CA /* ViewController.swift in Sources */,
+				7401D2622A349CD900F2C7CA /* ReminderModel.swift in Sources */,
 				7401D2442A266C0300F2C7CA /* SummaryViewController.swift in Sources */,
 				7401D1F72A24D6F800F2C7CA /* AppDelegate.swift in Sources */,
 				7401D2302A24DA3200F2C7CA /* LoginViewController.swift in Sources */,

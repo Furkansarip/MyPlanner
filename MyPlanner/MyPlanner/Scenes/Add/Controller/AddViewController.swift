@@ -12,18 +12,23 @@ class AddViewController: UIViewController {
     let titleTextField = PlannerTextField()
     let dateTextField = PlannerTextField()
     let typeTextField = PlannerTextField(frame: CGRect(x: 0, y: 0, width: 35, height: 65))
-    let dummyField = PlannerTextView()
+    let descriptionTextField = PlannerTextView()
+    let reminderTypeTextField = PlannerTextField()
     let addButton = UIButton(type: .system)
     let typePicker = UIPickerView()
+    let reminderPicker = UIPickerView()
     let datePicker = UIDatePicker()
     let typeArray = ["Choose 🕹","Money 💰","Health 🩺","Life 🏡"]
+    let reminderArray = ["15 Min","30 Min","1 Hour"]
     var data = [PlannerModel]()
+    let isReminderPage = true
     private lazy var stackView: UIStackView = {
       let stackView = UIStackView(arrangedSubviews: [
       titleTextField,
       dateTextField,
+      reminderTypeTextField,
       typeTextField,
-      dummyField
+      descriptionTextField
       ])
         stackView.axis = .vertical
         stackView.spacing = 8
@@ -36,7 +41,10 @@ class AddViewController: UIViewController {
         layout()
         createToolbar()
         title = "Add Page"
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        
+        if isReminderPage == false {
+            reminderTypeTextField.removeFromSuperview()
+        }
     }
    
     private func configurePicker() {
@@ -46,8 +54,12 @@ class AddViewController: UIViewController {
         
         dateTextField.inputView = datePicker
         datePicker.preferredDatePickerStyle = .wheels
-        datePicker.datePickerMode = .dateAndTime
+        datePicker.locale = NSLocale(localeIdentifier: "tr_TR") as Locale
         datePicker.timeZone = TimeZone.current
+        
+        reminderTypeTextField.inputView = reminderPicker
+        reminderPicker.delegate = self
+        reminderPicker.dataSource = self
         
     }
     
@@ -57,6 +69,7 @@ class AddViewController: UIViewController {
         titleTextField.placeholder = "Title"
         typeTextField.placeholder = "Type"
         dateTextField.placeholder = "Date"
+        reminderTypeTextField.placeholder = "Reminder Time"
         addButton.setTitle("Add", for: .normal)
         addButton.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,12 +79,13 @@ class AddViewController: UIViewController {
             titleTextField.heightAnchor.constraint(equalToConstant: 35),
             typeTextField.heightAnchor.constraint(equalToConstant: 35),
             dateTextField.heightAnchor.constraint(equalToConstant: 35),
-            stackView.heightAnchor.constraint(equalToConstant: 300),
+            reminderTypeTextField.heightAnchor.constraint(equalToConstant: 35),
+            
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: padding),
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: padding),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -padding),
             
-            //addButton.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+            addButton.topAnchor.constraint(equalTo: stackView.bottomAnchor),
             addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -padding)
             
@@ -92,26 +106,22 @@ class AddViewController: UIViewController {
         toolbar.isUserInteractionEnabled = true
         typeTextField.inputAccessoryView = toolbar
         dateTextField.inputAccessoryView = toolbar
+        reminderTypeTextField.inputAccessoryView = toolbar
         
     }
     
     @objc func dismissPicker() {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, h:mm a"
+        dateFormatter.dateFormat = "dd MMM EEEE, HH:mm"
         let date = dateFormatter.string(from: datePicker.date)
         dateTextField.text = "\(date)"
         view.endEditing(true)
     }
     
-    @objc func done() {
-        view.endEditing(true)
-    }
-    
     @objc func addButtonAction() {
-        //guard let title = titleTextField.text else { return }
-        let object = PlannerModel(title: titleTextField.text!, description: dateTextField.text!, type: typeTextField.text!)
-        data.append(object)
-        print(data)
+        
+        ReminderDataManager.shared.saveReminder(title: titleTextField.text!, date: dateTextField.text!, reminderType: reminderTypeTextField.text!, type: typeTextField.text!, description: descriptionTextField.text!)
+        ReminderDataManager.shared.getReminders()
     }
 
 }
@@ -122,15 +132,29 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return typeArray.count
+        if pickerView == typePicker {
+            return typeArray.count
+        } else {
+            return reminderArray.count
+        }
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return typeArray[row]
+        if pickerView == typePicker {
+            return typeArray[row]
+        } else {
+            return reminderArray[row]
+        }
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        typeTextField.text = typeArray[row]
+        if pickerView == typePicker {
+            typeTextField.text = typeArray[row]
+        } else {
+            reminderTypeTextField.text = reminderArray[row]
+        }
     }
     
 }

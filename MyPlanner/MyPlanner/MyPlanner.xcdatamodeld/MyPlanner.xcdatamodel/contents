@@ -8,6 +8,8 @@
     <entity name="Reminders" representedClassName="Reminders" syncable="YES" codeGenerationType="class">
         <attribute name="rDate" optional="YES" attributeType="String"/>
         <attribute name="rDescription" optional="YES" attributeType="String"/>
+        <attribute name="rTimeType" optional="YES" attributeType="String"/>
         <attribute name="rTitle" optional="YES" attributeType="String"/>
+        <attribute name="rType" optional="YES" attributeType="String"/>
     </entity>
 </model>
