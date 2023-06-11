@@ -5,7 +5,7 @@
 //  Created by Furkan Sarı on 10.06.2023.
 //
 
-import Foundation
+import UIKit
 
 protocol ReminderViewModelProtocol {
     var delegate: ReminderViewDelegate? { get set }

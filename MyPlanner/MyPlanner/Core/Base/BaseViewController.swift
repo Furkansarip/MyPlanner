@@ -29,7 +29,6 @@ class BaseViewController: UIViewController {
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        indicator.setContentHuggingPriority(UILayoutPriority(251), for: .vertical)
     }
     
     @objc func addPage() {

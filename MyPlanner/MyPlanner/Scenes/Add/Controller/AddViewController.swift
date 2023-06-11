@@ -11,7 +11,7 @@ class AddViewController: UIViewController {
 
     let titleTextField = PlannerTextField()
     let dateTextField = PlannerTextField()
-    let typeTextField = PlannerTextField(frame: CGRect(x: 0, y: 0, width: 35, height: 65))
+    let typeTextField = PlannerTextField()
     let descriptionTextField = PlannerTextView()
     let reminderTypeTextField = PlannerTextField()
     let addButton = UIButton(type: .system)
@@ -21,6 +21,8 @@ class AddViewController: UIViewController {
     let typeArray = ["Choose 🕹","Money 💰","Health 🩺","Life 🏡"]
     let reminderArray = ["15 Min","30 Min","1 Hour"]
     var data = [PlannerModel]()
+    let viewModel = AddViewModel()
+    let dateFormatter = DateFormatter()
     let isReminderPage = true
     private lazy var stackView: UIStackView = {
       let stackView = UIStackView(arrangedSubviews: [
@@ -45,6 +47,8 @@ class AddViewController: UIViewController {
         if isReminderPage == false {
             reminderTypeTextField.removeFromSuperview()
         }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(testAction))
+        
     }
    
     private func configurePicker() {
@@ -54,8 +58,9 @@ class AddViewController: UIViewController {
         
         dateTextField.inputView = datePicker
         datePicker.preferredDatePickerStyle = .wheels
-        datePicker.locale = NSLocale(localeIdentifier: "tr_TR") as Locale
+        datePicker.locale = NSLocale(localeIdentifier: "tr") as Locale
         datePicker.timeZone = TimeZone.current
+        
         
         reminderTypeTextField.inputView = reminderPicker
         reminderPicker.delegate = self
@@ -111,16 +116,21 @@ class AddViewController: UIViewController {
     }
     
     @objc func dismissPicker() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM EEEE, HH:mm"
+        dateFormatter.dateFormat = "dd MMM EEEE, yyyy HH:mm"
         let date = dateFormatter.string(from: datePicker.date)
         dateTextField.text = "\(date)"
         view.endEditing(true)
     }
     
+    @objc func testAction() {
+        let date = dateTextField.text
+        date?.toDate()
+    }
+    
     @objc func addButtonAction() {
-        
         ReminderDataManager.shared.saveReminder(title: titleTextField.text!, date: dateTextField.text!, reminderType: reminderTypeTextField.text!, type: typeTextField.text!, description: descriptionTextField.text!)
+        let date = dateTextField.text
+        viewModel.setReminder(targetDate:date?.toDate() ?? Date())
         navigationController?.pushViewController(ReminderViewController(), animated: true)
     }
 

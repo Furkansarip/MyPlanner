@@ -30,7 +30,7 @@ class ReminderViewController: BaseViewController {
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-        
+        view.addSubview(indicator)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -58,12 +58,11 @@ extension ReminderViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ReminderViewController: ReminderViewDelegate {
     func dataLoaded() {
-        DispatchQueue.main.async {
-            //self.indicator.stopAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.indicator.stopAnimating()
             self.tableView.reloadData()
         }
         
     }
-    
     
 }
