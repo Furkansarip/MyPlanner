@@ -31,7 +31,11 @@
 		7401D2582A2E4D1B00F2C7CA /* PlannerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2572A2E4D1B00F2C7CA /* PlannerTextField.swift */; };
 		7401D25A2A2FA22300F2C7CA /* PlannerTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2592A2FA22300F2C7CA /* PlannerTextView.swift */; };
 		7401D25F2A34964300F2C7CA /* ReminderDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D25E2A34964300F2C7CA /* ReminderDataManager.swift */; };
-		7401D2622A349CD900F2C7CA /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2612A349CD900F2C7CA /* ReminderModel.swift */; };
+		7401D2662A34B56D00F2C7CA /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2652A34B56D00F2C7CA /* ReminderViewModel.swift */; };
+		7401D2692A34C04100F2C7CA /* MaterialActivityIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 7401D2682A34C04100F2C7CA /* MaterialActivityIndicator */; };
+		7401D26B2A35E20500F2C7CA /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D26A2A35E20500F2C7CA /* AddViewModel.swift */; };
+		7401D26D2A35E4A300F2C7CA /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D26C2A35E4A300F2C7CA /* String+Ext.swift */; };
+		7401D2702A36105700F2C7CA /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D26F2A36105700F2C7CA /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +84,10 @@
 		7401D2572A2E4D1B00F2C7CA /* PlannerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerTextField.swift; sourceTree = "<group>"; };
 		7401D2592A2FA22300F2C7CA /* PlannerTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerTextView.swift; sourceTree = "<group>"; };
 		7401D25E2A34964300F2C7CA /* ReminderDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDataManager.swift; sourceTree = "<group>"; };
-		7401D2612A349CD900F2C7CA /* ReminderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
+		7401D2652A34B56D00F2C7CA /* ReminderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
+		7401D26A2A35E20500F2C7CA /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
+		7401D26C2A35E4A300F2C7CA /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		7401D26F2A36105700F2C7CA /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7401D2692A34C04100F2C7CA /* MaterialActivityIndicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +211,7 @@
 		7401D2312A24DA4200F2C7CA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7401D26E2A36104800F2C7CA /* Notification */,
 				7401D25B2A3495E300F2C7CA /* DataManager */,
 				7401D2482A2B4B4B00F2C7CA /* Base */,
 				7401D2322A24DAFD00F2C7CA /* Components */,
@@ -247,8 +256,8 @@
 		7401D2452A266C3700F2C7CA /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
-				7401D2602A349CCE00F2C7CA /* Model */,
-				7401D2462A266C4400F2C7CA /* ReminderViewController.swift */,
+				7401D2642A34B56200F2C7CA /* ViewModel */,
+				7401D2632A34B55900F2C7CA /* Controller */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -275,6 +284,7 @@
 			children = (
 				7401D24C2A2B555400F2C7CA /* AddViewController.swift */,
 				7401D24D2A2B555400F2C7CA /* AddViewController.xib */,
+				7401D26A2A35E20500F2C7CA /* AddViewModel.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				7401D2552A2CAA5700F2C7CA /* UIColor+Ext.swift */,
+				7401D26C2A35E4A300F2C7CA /* String+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -303,12 +314,28 @@
 			path = DataManager;
 			sourceTree = "<group>";
 		};
-		7401D2602A349CCE00F2C7CA /* Model */ = {
+		7401D2632A34B55900F2C7CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7401D2612A349CD900F2C7CA /* ReminderModel.swift */,
+				7401D2462A266C4400F2C7CA /* ReminderViewController.swift */,
 			);
-			path = Model;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7401D2642A34B56200F2C7CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7401D2652A34B56D00F2C7CA /* ReminderViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7401D26E2A36104800F2C7CA /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				7401D26F2A36105700F2C7CA /* NotificationManager.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +354,9 @@
 			dependencies = (
 			);
 			name = MyPlanner;
+			packageProductDependencies = (
+				7401D2682A34C04100F2C7CA /* MaterialActivityIndicator */,
+			);
 			productName = MyPlanner;
 			productReference = 7401D1F32A24D6F800F2C7CA /* MyPlanner.app */;
 			productType = "com.apple.product-type.application";
@@ -399,6 +429,9 @@
 				Base,
 			);
 			mainGroup = 7401D1EA2A24D6F800F2C7CA;
+			packageReferences = (
+				7401D2672A34C04100F2C7CA /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */,
+			);
 			productRefGroup = 7401D1F42A24D6F800F2C7CA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -446,11 +479,11 @@
 				7401D25F2A34964300F2C7CA /* ReminderDataManager.swift in Sources */,
 				7401D24A2A2B4B5500F2C7CA /* BaseViewController.swift in Sources */,
 				7401D2362A24DD7E00F2C7CA /* ThemeFont.swift in Sources */,
+				7401D2702A36105700F2C7CA /* NotificationManager.swift in Sources */,
 				7401D2382A24F2DF00F2C7CA /* LoginView.swift in Sources */,
 				7401D2012A24D6F800F2C7CA /* MyPlanner.xcdatamodeld in Sources */,
 				7401D2532A2C9CB400F2C7CA /* PlannerModel.swift in Sources */,
 				7401D1FB2A24D6F800F2C7CA /* ViewController.swift in Sources */,
-				7401D2622A349CD900F2C7CA /* ReminderModel.swift in Sources */,
 				7401D2442A266C0300F2C7CA /* SummaryViewController.swift in Sources */,
 				7401D1F72A24D6F800F2C7CA /* AppDelegate.swift in Sources */,
 				7401D2302A24DA3200F2C7CA /* LoginViewController.swift in Sources */,
@@ -458,8 +491,11 @@
 				7401D2582A2E4D1B00F2C7CA /* PlannerTextField.swift in Sources */,
 				7401D2472A266C4400F2C7CA /* ReminderViewController.swift in Sources */,
 				7401D23B2A25BFB100F2C7CA /* MainViewController.swift in Sources */,
+				7401D26D2A35E4A300F2C7CA /* String+Ext.swift in Sources */,
+				7401D2662A34B56D00F2C7CA /* ReminderViewModel.swift in Sources */,
 				7401D2562A2CAA5700F2C7CA /* UIColor+Ext.swift in Sources */,
 				7401D24E2A2B555400F2C7CA /* AddViewController.swift in Sources */,
+				7401D26B2A35E20500F2C7CA /* AddViewModel.swift in Sources */,
 				7401D2422A266BE500F2C7CA /* GoalsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,6 +830,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7401D2672A34C04100F2C7CA /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nspavlo/MaterialActivityIndicator.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7401D2682A34C04100F2C7CA /* MaterialActivityIndicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7401D2672A34C04100F2C7CA /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */;
+			productName = MaterialActivityIndicator;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		7401D1FF2A24D6F800F2C7CA /* MyPlanner.xcdatamodeld */ = {

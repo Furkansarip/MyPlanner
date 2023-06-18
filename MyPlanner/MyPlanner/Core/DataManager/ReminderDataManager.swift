@@ -18,6 +18,7 @@ final class ReminderDataManager {
         
     }
     
+    @discardableResult
     func saveReminder(title:String, date:String, reminderType:String, type:String, description: String) -> Reminders? {
         let entity = NSEntityDescription.entity(forEntityName: "Reminders", in: managedContext)!
         let reminderData = NSManagedObject(entity: entity, insertInto: managedContext)
