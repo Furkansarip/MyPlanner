@@ -12,10 +12,8 @@ extension String {
     func toDate()-> Date? {
         
         let dateFormatter = DateFormatter()
-        //dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
         dateFormatter.dateFormat = "dd MMM EEEE, yyyy HH:mm"
         let date = dateFormatter.date(from: self)
-        print("Extension:\(String(describing: date))")
         return date
 
     }
