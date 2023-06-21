@@ -8,16 +8,17 @@
 import UIKit
 
 class ReminderViewController: BaseViewController {
-
+    
     let tableView = UITableView(frame: .zero)
+    let floatingButton = UIButton(type: .system)
     let viewModel = ReminderViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Reminder"
         viewModel.delegate = self
+        baseDelegate = self
         configureTableView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,11 +32,12 @@ class ReminderViewController: BaseViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         view.addSubview(indicator)
+        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
 }
@@ -64,5 +66,18 @@ extension ReminderViewController: ReminderViewDelegate {
         }
         
     }
-    
 }
+
+extension ReminderViewController: BaseDelegate {
+    func getView(targetView: ChooseView) {
+        view.addSubview(targetView)
+        view.bringSubviewToFront(targetView)
+        
+        NSLayoutConstraint.activate([
+            targetView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            targetView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+    }
+}
+

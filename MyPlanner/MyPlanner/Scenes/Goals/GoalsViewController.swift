@@ -17,3 +17,4 @@ class GoalsViewController: BaseViewController {
     }
 
 }
+

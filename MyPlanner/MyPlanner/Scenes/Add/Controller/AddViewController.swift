@@ -18,7 +18,7 @@ class AddViewController: UIViewController {
         viewModel.loadUI(view: view)
         title = "Add Page"
         
-        if isReminderPage == false {
+        if title == "Goal Page" {
             viewModel.reminderTypeTextField.removeFromSuperview()
         }
     }

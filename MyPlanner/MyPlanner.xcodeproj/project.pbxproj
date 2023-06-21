@@ -25,7 +25,6 @@
 		7401D2472A266C4400F2C7CA /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2462A266C4400F2C7CA /* ReminderViewController.swift */; };
 		7401D24A2A2B4B5500F2C7CA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2492A2B4B5500F2C7CA /* BaseViewController.swift */; };
 		7401D24E2A2B555400F2C7CA /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D24C2A2B555400F2C7CA /* AddViewController.swift */; };
-		7401D24F2A2B555400F2C7CA /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7401D24D2A2B555400F2C7CA /* AddViewController.xib */; };
 		7401D2532A2C9CB400F2C7CA /* PlannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2522A2C9CB400F2C7CA /* PlannerModel.swift */; };
 		7401D2562A2CAA5700F2C7CA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2552A2CAA5700F2C7CA /* UIColor+Ext.swift */; };
 		7401D2582A2E4D1B00F2C7CA /* PlannerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2572A2E4D1B00F2C7CA /* PlannerTextField.swift */; };
@@ -36,6 +35,10 @@
 		7401D26B2A35E20500F2C7CA /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D26A2A35E20500F2C7CA /* AddViewModel.swift */; };
 		7401D26D2A35E4A300F2C7CA /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D26C2A35E4A300F2C7CA /* String+Ext.swift */; };
 		7401D2702A36105700F2C7CA /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D26F2A36105700F2C7CA /* NotificationManager.swift */; };
+		7401D2732A3F35EE00F2C7CA /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2722A3F35EE00F2C7CA /* ChooseViewController.swift */; };
+		7401D2752A3F42E600F2C7CA /* PlannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2742A3F42E600F2C7CA /* PlannerButton.swift */; };
+		7401D2792A4354D700F2C7CA /* ChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2782A4354D700F2C7CA /* ChooseView.swift */; };
+		7401D27B2A4368D500F2C7CA /* BaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D27A2A4368D500F2C7CA /* BaseProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +81,6 @@
 		7401D2462A266C4400F2C7CA /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		7401D2492A2B4B5500F2C7CA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7401D24C2A2B555400F2C7CA /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		7401D24D2A2B555400F2C7CA /* AddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
 		7401D2522A2C9CB400F2C7CA /* PlannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerModel.swift; sourceTree = "<group>"; };
 		7401D2552A2CAA5700F2C7CA /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		7401D2572A2E4D1B00F2C7CA /* PlannerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerTextField.swift; sourceTree = "<group>"; };
@@ -88,6 +90,10 @@
 		7401D26A2A35E20500F2C7CA /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		7401D26C2A35E4A300F2C7CA /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		7401D26F2A36105700F2C7CA /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		7401D2722A3F35EE00F2C7CA /* ChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
+		7401D2742A3F42E600F2C7CA /* PlannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerButton.swift; sourceTree = "<group>"; };
+		7401D2782A4354D700F2C7CA /* ChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseView.swift; sourceTree = "<group>"; };
+		7401D27A2A4368D500F2C7CA /* BaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +231,7 @@
 				7401D2352A24DD7E00F2C7CA /* ThemeFont.swift */,
 				7401D2572A2E4D1B00F2C7CA /* PlannerTextField.swift */,
 				7401D2592A2FA22300F2C7CA /* PlannerTextView.swift */,
+				7401D2742A3F42E600F2C7CA /* PlannerButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -266,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				7401D2492A2B4B5500F2C7CA /* BaseViewController.swift */,
+				7401D27A2A4368D500F2C7CA /* BaseProtocol.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 		7401D24B2A2B524F00F2C7CA /* Add */ = {
 			isa = PBXGroup;
 			children = (
+				7401D2712A3F339500F2C7CA /* View */,
 				7401D2512A2C9C9C00F2C7CA /* Model */,
 				7401D2502A2C9C8D00F2C7CA /* Controller */,
 			);
@@ -283,7 +292,6 @@
 			isa = PBXGroup;
 			children = (
 				7401D24C2A2B555400F2C7CA /* AddViewController.swift */,
-				7401D24D2A2B555400F2C7CA /* AddViewController.xib */,
 				7401D26A2A35E20500F2C7CA /* AddViewModel.swift */,
 			);
 			path = Controller;
@@ -336,6 +344,15 @@
 				7401D26F2A36105700F2C7CA /* NotificationManager.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		7401D2712A3F339500F2C7CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7401D2722A3F35EE00F2C7CA /* ChooseViewController.swift */,
+				7401D2782A4354D700F2C7CA /* ChooseView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,7 +465,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7401D24F2A2B555400F2C7CA /* AddViewController.xib in Resources */,
 				7401D2062A24D6F900F2C7CA /* LaunchScreen.storyboard in Resources */,
 				7401D2032A24D6F900F2C7CA /* Assets.xcassets in Resources */,
 			);
@@ -481,10 +497,14 @@
 				7401D2362A24DD7E00F2C7CA /* ThemeFont.swift in Sources */,
 				7401D2702A36105700F2C7CA /* NotificationManager.swift in Sources */,
 				7401D2382A24F2DF00F2C7CA /* LoginView.swift in Sources */,
+				7401D27B2A4368D500F2C7CA /* BaseProtocol.swift in Sources */,
 				7401D2012A24D6F800F2C7CA /* MyPlanner.xcdatamodeld in Sources */,
 				7401D2532A2C9CB400F2C7CA /* PlannerModel.swift in Sources */,
+				7401D2792A4354D700F2C7CA /* ChooseView.swift in Sources */,
 				7401D1FB2A24D6F800F2C7CA /* ViewController.swift in Sources */,
 				7401D2442A266C0300F2C7CA /* SummaryViewController.swift in Sources */,
+				7401D2752A3F42E600F2C7CA /* PlannerButton.swift in Sources */,
+				7401D2732A3F35EE00F2C7CA /* ChooseViewController.swift in Sources */,
 				7401D1F72A24D6F800F2C7CA /* AppDelegate.swift in Sources */,
 				7401D2302A24DA3200F2C7CA /* LoginViewController.swift in Sources */,
 				7401D1F92A24D6F800F2C7CA /* SceneDelegate.swift in Sources */,
