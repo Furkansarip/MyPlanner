@@ -13,7 +13,7 @@ class ChooseView: UIView {
     let goalButton = PlannerButton(type: .system)
     let reminderButton = PlannerButton(type: .system)
     let closeButton = UIButton(type: .custom)
-    let navController = UINavigationController()
+    var parentView: UIViewController? = nil
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             goalButton,
@@ -72,7 +72,8 @@ class ChooseView: UIView {
         reminderButton.customizeButton(color: .gray, textColor: .systemIndigo)
         popupView.layer.cornerRadius = 10
         closeButton.addTarget(self, action: #selector(popView), for: .touchUpInside)
-        goalButton.addTarget(self, action: #selector(pushAddPage), for: .touchUpInside)
+        goalButton.addTarget(self, action: #selector(pushGoal), for: .touchUpInside)
+        reminderButton.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
     }
     
     @objc func popView() {
@@ -80,9 +81,13 @@ class ChooseView: UIView {
         print("hello")
     }
     
-    @objc func pushAddPage() {
-       
-        
-        
+    @objc func pushGoal() {
+        parentView?.navigationController?.pushViewController(AddViewController(), animated: true)
+        self.removeFromSuperview()
+    }
+    
+    @objc func pushReminder() {
+        parentView?.navigationController?.pushViewController(AddViewController(), animated: true)
+        self.removeFromSuperview()
     }
 }

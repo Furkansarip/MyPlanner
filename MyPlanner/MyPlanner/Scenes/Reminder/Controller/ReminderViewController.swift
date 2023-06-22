@@ -72,7 +72,7 @@ extension ReminderViewController: BaseDelegate {
     func getView(targetView: ChooseView) {
         view.addSubview(targetView)
         view.bringSubviewToFront(targetView)
-        
+        targetView.parentView = self
         NSLayoutConstraint.activate([
             targetView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             targetView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
