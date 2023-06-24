@@ -20,7 +20,7 @@ protocol AddViewModelProtocol {
 }
 
 protocol AddViewModelDelegate : AnyObject {
-    func pushController()
+    func popController()
     func editingDone()
 }
 
@@ -40,6 +40,7 @@ final class AddViewModel: AddViewModelProtocol {
     let typePicker = UIPickerView()
     let reminderPicker = UIPickerView()
     let datePicker = UIDatePicker()
+    let isReminderPage = false
     private lazy var stackView: UIStackView = {
       let stackView = UIStackView(arrangedSubviews: [
       titleTextField,
@@ -99,11 +100,16 @@ final class AddViewModel: AddViewModelProtocol {
     }
     
     @objc func addButtonAction() {
-        ReminderDataManager.shared.saveReminder(title: titleTextField.text!, date: dateTextField.text!, reminderType: reminderTypeTextField.text!, type: typeTextField.text!, description: descriptionTextField.text!)
-        let date = dateTextField.text
-        guard let convertedDate = date?.toDate() else { return }
-        setReminder(title: titleTextField.text!, body: "description", targetDate: convertedDate)
-        delegate?.pushController()
+        if isReminderPage {
+            ReminderDataManager.shared.saveReminder(title: titleTextField.text!, date: dateTextField.text!, reminderType: reminderTypeTextField.text!, type: typeTextField.text!, description: descriptionTextField.text!)
+            let date = dateTextField.text
+            guard let convertedDate = date?.toDate() else { return }
+            setReminder(title: titleTextField.text!, body: "description", targetDate: convertedDate)
+            delegate?.popController()
+        } else {
+            print("Test")
+        }
+        
     }
     
     func configurePicker(delegate: UIViewController) {

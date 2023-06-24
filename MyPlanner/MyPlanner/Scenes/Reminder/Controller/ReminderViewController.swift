@@ -8,7 +8,7 @@
 import UIKit
 
 class ReminderViewController: BaseViewController {
-
+    
     let tableView = UITableView(frame: .zero)
     let viewModel = ReminderViewModel()
     override func viewDidLoad() {
@@ -16,8 +16,8 @@ class ReminderViewController: BaseViewController {
         view.backgroundColor = .systemBackground
         title = "Reminder"
         viewModel.delegate = self
+        baseDelegate = self
         configureTableView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,13 +29,15 @@ class ReminderViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UINib(nibName: "PlannerCell", bundle: nil), forCellReuseIdentifier: "plannerCell")
         view.addSubview(tableView)
         view.addSubview(indicator)
+        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
 }
@@ -46,13 +48,18 @@ extension ReminderViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = viewModel.reminders[indexPath.row].rTitle
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: "plannerCell") as? PlannerCell else { return UITableViewCell() }
+        let data = viewModel.reminders[indexPath.row]
+        cell.configureReminderCell(reminderModel: data)
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Today"
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
 }
 
@@ -64,5 +71,18 @@ extension ReminderViewController: ReminderViewDelegate {
         }
         
     }
-    
 }
+
+extension ReminderViewController: BaseDelegate {
+    func getView(targetView: ChooseView) {
+        view.addSubview(targetView)
+        view.bringSubviewToFront(targetView)
+        targetView.parentView = self
+        NSLayoutConstraint.activate([
+            targetView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            targetView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+    }
+}
+

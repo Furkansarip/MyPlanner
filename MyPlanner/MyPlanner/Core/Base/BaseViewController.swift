@@ -9,8 +9,9 @@ import UIKit
 import MaterialActivityIndicator
 
 class BaseViewController: UIViewController {
-    
+    weak var baseDelegate: BaseDelegate?
     let indicator = MaterialActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,11 +33,15 @@ class BaseViewController: UIViewController {
     }
     
     @objc func addPage() {
-        let addPlanPage = AddViewController()
-        /* addPlanPage.modalPresentationStyle = .fullScreen
-         present(addPlanPage,animated: true) */
-        navigationController?.pushViewController(addPlanPage, animated: true)
+        targetViewController()
+    }
+}
+
+extension BaseViewController: BaseProtocol {
+    func targetViewController() {
+        let chooseView = ChooseView(frame: .zero)
+        baseDelegate?.getView(targetView: chooseView)
     }
     
-    
 }
+

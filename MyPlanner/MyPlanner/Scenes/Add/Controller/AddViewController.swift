@@ -18,7 +18,7 @@ class AddViewController: UIViewController {
         viewModel.loadUI(view: view)
         title = "Add Page"
         
-        if isReminderPage == false {
+        if title == "Goal Page" {
             viewModel.reminderTypeTextField.removeFromSuperview()
         }
     }
@@ -58,8 +58,8 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 extension AddViewController: AddViewModelDelegate {
-    func pushController() {
-        navigationController?.pushViewController(ReminderViewController(), animated: true)
+    func popController() {
+        navigationController?.popViewController(animated: true)
     }
     
     func editingDone() {
