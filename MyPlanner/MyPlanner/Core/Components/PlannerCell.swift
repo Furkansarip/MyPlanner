@@ -31,4 +31,9 @@ class PlannerCell: UITableViewCell {
         
     }
     
+    func configureGoalCell(goalModel: Goals) {
+        titleLabel.text = goalModel.gTitle
+        dateLabel.text = goalModel.gDate
+        descriptionLabel.text = goalModel.gDescription
+    }
 }

@@ -14,6 +14,7 @@ class ChooseView: UIView {
     let reminderButton = PlannerButton(type: .system)
     let closeButton = UIButton(type: .custom)
     var parentView: UIViewController? = nil
+    let addPage = AddViewController()
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             goalButton,
@@ -82,12 +83,16 @@ class ChooseView: UIView {
     }
     
     @objc func pushGoal() {
-        parentView?.navigationController?.pushViewController(AddViewController(), animated: true)
+        addPage.isReminderPage = false
+        parentView?.navigationController?.pushViewController(addPage, animated: false)
         self.removeFromSuperview()
+        
     }
     
     @objc func pushReminder() {
-        parentView?.navigationController?.pushViewController(AddViewController(), animated: true)
+        addPage.isReminderPage = true
+        parentView?.navigationController?.pushViewController(addPage, animated: false)
         self.removeFromSuperview()
+        
     }
 }

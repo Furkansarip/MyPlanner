@@ -18,7 +18,7 @@ final class GoalsDataManager {
     }
     
     @discardableResult
-    func saveGoal(title:String, date:String, reminderType:String, type:String, description: String) -> Goals? {
+    func saveGoal(title:String, date:String, type:String, description: String) -> Goals? {
         let entity = NSEntityDescription.entity(forEntityName: "Goals", in: managedContext)!
         let goalData = NSManagedObject(entity: entity, insertInto: managedContext)
         goalData.setValue(title, forKey: "gTitle")

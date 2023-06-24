@@ -20,7 +20,7 @@ protocol AddViewModelProtocol {
 }
 
 protocol AddViewModelDelegate : AnyObject {
-    func popController()
+    func popController() 
     func editingDone()
 }
 
@@ -101,13 +101,24 @@ final class AddViewModel: AddViewModelProtocol {
     
     @objc func addButtonAction() {
         if isReminderPage {
-            ReminderDataManager.shared.saveReminder(title: titleTextField.text!, date: dateTextField.text!, reminderType: reminderTypeTextField.text!, type: typeTextField.text!, description: descriptionTextField.text!)
+            ReminderDataManager.shared.saveReminder(title: titleTextField.text!,
+                                                    date: dateTextField.text!,
+                                                    reminderType: reminderTypeTextField.text!,
+                                                    type: typeTextField.text!,
+                                                    description: descriptionTextField.text!)
             let date = dateTextField.text
             guard let convertedDate = date?.toDate() else { return }
             setReminder(title: titleTextField.text!, body: "description", targetDate: convertedDate)
             delegate?.popController()
         } else {
-            print("Test")
+            GoalsDataManager.shared.saveGoal(title: titleTextField.text!,
+                                             date: dateTextField.text!,
+                                             type: typeTextField.text!,
+                                             description: descriptionTextField.text!)
+            let date = dateTextField.text
+            guard let convertedDate = date?.toDate() else { return }
+            setReminder(title: "Goal", body: "Challenge Completed!", targetDate: convertedDate)
+            delegate?.popController()
         }
         
     }
