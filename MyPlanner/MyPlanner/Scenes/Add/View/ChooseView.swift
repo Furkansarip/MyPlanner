@@ -73,7 +73,7 @@ class ChooseView: UIView {
         popupView.layer.cornerRadius = 10
         closeButton.addTarget(self, action: #selector(popView), for: .touchUpInside)
         goalButton.addTarget(self, action: #selector(pushGoal), for: .touchUpInside)
-        reminderButton.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+        reminderButton.addTarget(self, action: #selector(pushReminder), for: .touchUpInside)
     }
     
     @objc func popView() {

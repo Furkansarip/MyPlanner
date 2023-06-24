@@ -9,6 +9,6 @@ import Foundation
 
 struct PlannerModel {
     let title: String
+    let date: String
     let description: String
-    let type: String
 }

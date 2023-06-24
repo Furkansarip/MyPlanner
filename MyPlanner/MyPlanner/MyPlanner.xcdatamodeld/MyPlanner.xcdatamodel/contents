@@ -4,6 +4,7 @@
         <attribute name="gDate" optional="YES" attributeType="String"/>
         <attribute name="gDescription" optional="YES" attributeType="String"/>
         <attribute name="gTitle" optional="YES" attributeType="String"/>
+        <attribute name="gType" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Reminders" representedClassName="Reminders" syncable="YES" codeGenerationType="class">
         <attribute name="rDate" optional="YES" attributeType="String"/>

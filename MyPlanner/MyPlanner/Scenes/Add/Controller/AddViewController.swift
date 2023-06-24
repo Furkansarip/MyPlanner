@@ -58,8 +58,8 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 extension AddViewController: AddViewModelDelegate {
-    func pushController() {
-        navigationController?.pushViewController(ReminderViewController(), animated: true)
+    func popController() {
+        navigationController?.popViewController(animated: true)
     }
     
     func editingDone() {

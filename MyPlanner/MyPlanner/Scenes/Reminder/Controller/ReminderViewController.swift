@@ -10,7 +10,6 @@ import UIKit
 class ReminderViewController: BaseViewController {
     
     let tableView = UITableView(frame: .zero)
-    let floatingButton = UIButton(type: .system)
     let viewModel = ReminderViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +29,7 @@ class ReminderViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UINib(nibName: "PlannerCell", bundle: nil), forCellReuseIdentifier: "plannerCell")
         view.addSubview(tableView)
         view.addSubview(indicator)
         
@@ -48,13 +48,18 @@ extension ReminderViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = viewModel.reminders[indexPath.row].rTitle
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: "plannerCell") as? PlannerCell else { return UITableViewCell() }
+        let data = viewModel.reminders[indexPath.row]
+        cell.configureReminderCell(reminderModel: data)
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Today"
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
 }
 
