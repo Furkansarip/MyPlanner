@@ -31,4 +31,26 @@ class PlannerCell: UITableViewCell {
         
     }
     
+    func configureGoalCell(goalModel: Goals) {
+        titleLabel.text = goalModel.gTitle
+        dateLabel.text = goalModel.gType
+        descriptionLabel.text = goalModel.gDescription
+        let data:BaseEnum = BaseEnum(rawValue: goalModel.gType ?? "") ?? BaseEnum.other
+        switch data {
+        case .money:
+            cellImage.backgroundColor = .red
+        case .health:
+            cellImage.backgroundColor = .blue
+        case .life:
+            cellImage.backgroundColor = .systemPink
+        case .personal:
+            cellImage.backgroundColor = .purple
+        case .passion:
+            cellImage.backgroundColor = .green
+        case .other:
+            cellImage.backgroundColor = .cyan
+        }
+        
+        
+    }
 }

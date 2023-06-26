@@ -49,4 +49,21 @@ final class ReminderDataManager {
         }
         return []
     }
+    
+    func deleteReminder(objectID: NSManagedObjectID) {
+        let fetch = NSFetchRequest<NSManagedObject>(entityName: "Reminders")
+         fetch.returnsObjectsAsFaults = false
+         do {
+             let reminders = try managedContext.fetch(fetch)
+             for data in reminders {
+                 if data.objectID == objectID {
+                     managedContext.delete(data)
+                 }
+             }
+             try managedContext.save()
+           
+         } catch {
+             print("Error")
+         }
+    }
 }

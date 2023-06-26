@@ -9,7 +9,7 @@ import UIKit
 
 class AddViewController: UIViewController {
     let viewModel = AddViewModel()
-    let isReminderPage = false
+    var isReminderPage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,7 @@ class AddViewController: UIViewController {
         viewModel.loadUI(view: view)
         title = "Add Page"
         
-        if title == "Goal Page" {
+        if !isReminderPage {
             viewModel.reminderTypeTextField.removeFromSuperview()
         }
     }
@@ -40,6 +40,7 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == viewModel.typePicker {
+            viewModel.typeTextField.text = viewModel.typeArray[0]
             return viewModel.typeArray[row]
         } else {
             return viewModel.reminderArray[row]

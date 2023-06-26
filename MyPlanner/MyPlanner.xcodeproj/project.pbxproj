@@ -44,6 +44,7 @@
 		7401D2842A46C8E500F2C7CA /* PlannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7401D2822A46C8E500F2C7CA /* PlannerCell.xib */; };
 		7401D2892A47269100F2C7CA /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2882A47269100F2C7CA /* GoalsViewModel.swift */; };
 		7401D28B2A47272B00F2C7CA /* GoalsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */; };
+		7401D28D2A488FC900F2C7CA /* BaseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D28C2A488FC900F2C7CA /* BaseEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		7401D2822A46C8E500F2C7CA /* PlannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlannerCell.xib; sourceTree = "<group>"; };
 		7401D2882A47269100F2C7CA /* GoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewModel.swift; sourceTree = "<group>"; };
 		7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDataManager.swift; sourceTree = "<group>"; };
+		7401D28C2A488FC900F2C7CA /* BaseEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 			children = (
 				7401D2492A2B4B5500F2C7CA /* BaseViewController.swift */,
 				7401D27A2A4368D500F2C7CA /* BaseProtocol.swift */,
+				7401D28C2A488FC900F2C7CA /* BaseEnum.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				7401D2472A266C4400F2C7CA /* ReminderViewController.swift in Sources */,
 				7401D23B2A25BFB100F2C7CA /* MainViewController.swift in Sources */,
 				7401D26D2A35E4A300F2C7CA /* String+Ext.swift in Sources */,
+				7401D28D2A488FC900F2C7CA /* BaseEnum.swift in Sources */,
 				7401D2662A34B56D00F2C7CA /* ReminderViewModel.swift in Sources */,
 				7401D2562A2CAA5700F2C7CA /* UIColor+Ext.swift in Sources */,
 				7401D24E2A2B555400F2C7CA /* AddViewController.swift in Sources */,

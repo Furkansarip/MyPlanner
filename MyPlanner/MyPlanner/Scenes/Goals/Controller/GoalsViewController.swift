@@ -10,12 +10,19 @@ import UIKit
 class GoalsViewController: BaseViewController {
 
     let tableView = UITableView()
+    let viewModel = GoalsViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = "Goals"
+        title = "Your Goals"
         indicator.startAnimating()
+        viewModel.delegate = self
         configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getGoals()
     }
     
     private func configureTableView() {
@@ -38,20 +45,34 @@ class GoalsViewController: BaseViewController {
 extension GoalsViewController: UITableViewDelegate, UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.goalsCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "text"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "plannerCell") as? PlannerCell else { return UITableViewCell() }
+        let data = viewModel.goals[indexPath.row]
+        cell.configureGoalCell(goalModel: data)
         return cell
     }
-    
+   
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        if editingStyle == .delete {
+            let data = viewModel.goals[indexPath.row].objectID
+            GoalsDataManager.shared.deleteGoal(objectID: data)
+            viewModel.goals.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        120
+    }
 }
 
 extension GoalsViewController: GoalsViewDelegate {
     func dataLoaded() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.indicator.stopAnimating()
             self.tableView.reloadData()
         }

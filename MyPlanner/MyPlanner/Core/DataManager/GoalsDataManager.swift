@@ -18,7 +18,7 @@ final class GoalsDataManager {
     }
     
     @discardableResult
-    func saveGoal(title:String, date:String, reminderType:String, type:String, description: String) -> Goals? {
+    func saveGoal(title:String, date:String, type:String, description: String) -> Goals? {
         let entity = NSEntityDescription.entity(forEntityName: "Goals", in: managedContext)!
         let goalData = NSManagedObject(entity: entity, insertInto: managedContext)
         goalData.setValue(title, forKey: "gTitle")
@@ -46,5 +46,23 @@ final class GoalsDataManager {
             print("Error")
         }
         return []
+    }
+    
+    func deleteGoal(objectID: NSManagedObjectID) {
+        let fetch = NSFetchRequest<NSManagedObject>(entityName: "Goals")
+         fetch.returnsObjectsAsFaults = false
+         do {
+             let goals = try managedContext.fetch(fetch)
+             for data in goals {
+                 if data.objectID == objectID {
+                     managedContext.delete(data)
+                 }
+             }
+             try managedContext.save()
+           
+         } catch {
+             print("Error")
+         }
+        
     }
 }

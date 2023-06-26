@@ -9,8 +9,8 @@ import UIKit
 
 protocol GoalsViewModelProtocol {
     var delegate: GoalsViewDelegate? { get set }
-    func getReminders()
-    func reminderCount() -> Int
+    func getGoals()
+    func goalsCount() -> Int
 }
 
 protocol GoalsViewDelegate: AnyObject {
@@ -21,12 +21,12 @@ final class GoalsViewModel: GoalsViewModelProtocol {
     weak var delegate: GoalsViewDelegate?
     var goals = [Goals]()
     
-    func getReminders() {
+    func getGoals() {
         goals = GoalsDataManager.shared.getGoals()
         delegate?.dataLoaded()
     }
     
-    func reminderCount() -> Int {
+    func goalsCount() -> Int {
         return goals.count
     }
     
