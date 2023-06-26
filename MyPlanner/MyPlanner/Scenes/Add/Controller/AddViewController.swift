@@ -40,6 +40,7 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == viewModel.typePicker {
+            viewModel.typeTextField.text = viewModel.typeArray[0]
             return viewModel.typeArray[row]
         } else {
             return viewModel.reminderArray[row]

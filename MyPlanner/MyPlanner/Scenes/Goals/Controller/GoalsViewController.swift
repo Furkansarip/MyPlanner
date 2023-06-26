@@ -62,7 +62,7 @@ extension GoalsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension GoalsViewController: GoalsViewDelegate {
     func dataLoaded() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.indicator.stopAnimating()
             self.tableView.reloadData()
         }

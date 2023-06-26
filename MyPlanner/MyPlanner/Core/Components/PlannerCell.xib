@@ -26,8 +26,8 @@
                             <constraint firstAttribute="height" constant="95" id="qlv-mT-GrV"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="m8y-YD-dgn">
-                        <rect key="frame" x="99" y="10" width="209" height="86.666666666666671"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="m8y-YD-dgn">
+                        <rect key="frame" x="99" y="10" width="209" height="94.666666666666671"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Örnek Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkJ-lc-LeQ">
                                 <rect key="frame" x="0.0" y="0.0" width="209" height="20.333333333333332"/>
@@ -36,13 +36,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Hedeflenen Tarih: 06.01.1997" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVt-fF-3FD">
-                                <rect key="frame" x="0.0" y="22.333333333333336" width="209" height="14.333333333333336"/>
+                                <rect key="frame" x="0.0" y="26.333333333333332" width="209" height="14.333333333333332"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0Z-l4-5UT">
-                                <rect key="frame" x="0.0" y="38.666666666666664" width="209" height="47.999999999999993"/>
+                                <rect key="frame" x="0.0" y="46.666666666666657" width="209" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Wyp-SX-bhc"/>
                                 </constraints>

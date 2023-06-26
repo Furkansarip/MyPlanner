@@ -28,7 +28,7 @@ final class AddViewModel: AddViewModelProtocol {
     
     weak var delegate: AddViewModelDelegate?
     var doneButton = UIBarButtonItem()
-    let typeArray = ["Choose 🕹","Money 💰","Health 🩺","Life 🏡"]
+    let typeArray: [String] = BaseEnum.allCases.map { $0.rawValue }
     let reminderArray = ["15 Min","30 Min","1 Hour"]
     let titleTextField = PlannerTextField()
     let dateTextField = PlannerTextField()
@@ -85,9 +85,6 @@ final class AddViewModel: AddViewModelProtocol {
     }
     
     func setReminder(title: String, body:String, targetDate: Date) {
-        print("Title:\(title)")
-        print("body :\(body)")
-        print("targetdate:\(targetDate)")
         NotificationManager.shared.localNotify(title: title, body: body, targetDate: targetDate)
     }
     
@@ -143,7 +140,6 @@ final class AddViewModel: AddViewModelProtocol {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissPicker))
-        //toolbar.setItems([doneButton], animated: false)
         
         toolbar.items = [
                     UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),

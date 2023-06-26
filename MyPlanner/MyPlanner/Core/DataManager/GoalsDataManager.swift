@@ -47,4 +47,20 @@ final class GoalsDataManager {
         }
         return []
     }
+    
+    func deleteGoal() {
+        let fetch = NSFetchRequest<NSManagedObject>(entityName: "Goals")
+         fetch.returnsObjectsAsFaults = false
+         do {
+             let goals = try managedContext.fetch(fetch)
+             for data in goals {
+                 managedContext.delete(data)
+             }
+             try managedContext.save()
+           
+         } catch {
+             print("Error")
+         }
+        
+    }
 }
