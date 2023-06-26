@@ -17,7 +17,6 @@ class SummaryViewController: BaseViewController {
         title = "Summary"
         view.backgroundColor = .systemBackground
         configureTableView()
-        
     }
     
     private func configureTableView() {

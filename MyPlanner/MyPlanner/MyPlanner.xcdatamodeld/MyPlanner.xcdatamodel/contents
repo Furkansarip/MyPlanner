@@ -3,6 +3,7 @@
     <entity name="Goals" representedClassName="Goals" syncable="YES" codeGenerationType="class">
         <attribute name="gDate" optional="YES" attributeType="String"/>
         <attribute name="gDescription" optional="YES" attributeType="String"/>
+        <attribute name="goalID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="gTitle" optional="YES" attributeType="String"/>
         <attribute name="gType" optional="YES" attributeType="String"/>
     </entity>

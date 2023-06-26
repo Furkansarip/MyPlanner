@@ -54,7 +54,17 @@ extension GoalsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureGoalCell(goalModel: data)
         return cell
     }
-    
+   
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        if editingStyle == .delete {
+            let data = viewModel.goals[indexPath.row].objectID
+            GoalsDataManager.shared.deleteGoal(objectID: data)
+            viewModel.goals.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+   
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         120
     }
