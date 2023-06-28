@@ -45,6 +45,7 @@
 		7401D2892A47269100F2C7CA /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2882A47269100F2C7CA /* GoalsViewModel.swift */; };
 		7401D28B2A47272B00F2C7CA /* GoalsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */; };
 		7401D28D2A488FC900F2C7CA /* BaseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D28C2A488FC900F2C7CA /* BaseEnum.swift */; };
+		74CB3DD02A4C5C4300F49DBE /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 74CB3DCF2A4C5C4300F49DBE /* SwiftAlertView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74CB3DD02A4C5C4300F49DBE /* SwiftAlertView in Frameworks */,
 				7401D2692A34C04100F2C7CA /* MaterialActivityIndicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +425,7 @@
 			name = MyPlanner;
 			packageProductDependencies = (
 				7401D2682A34C04100F2C7CA /* MaterialActivityIndicator */,
+				74CB3DCF2A4C5C4300F49DBE /* SwiftAlertView */,
 			);
 			productName = MyPlanner;
 			productReference = 7401D1F32A24D6F800F2C7CA /* MyPlanner.app */;
@@ -498,6 +501,7 @@
 			mainGroup = 7401D1EA2A24D6F800F2C7CA;
 			packageReferences = (
 				7401D2672A34C04100F2C7CA /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */,
+				74CB3DCE2A4C5C4200F49DBE /* XCRemoteSwiftPackageReference "SwiftAlertView" */,
 			);
 			productRefGroup = 7401D1F42A24D6F800F2C7CA /* Products */;
 			projectDirPath = "";
@@ -916,6 +920,14 @@
 				kind = branch;
 			};
 		};
+		74CB3DCE2A4C5C4200F49DBE /* XCRemoteSwiftPackageReference "SwiftAlertView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dinhquan/SwiftAlertView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -923,6 +935,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7401D2672A34C04100F2C7CA /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */;
 			productName = MaterialActivityIndicator;
+		};
+		74CB3DCF2A4C5C4300F49DBE /* SwiftAlertView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74CB3DCE2A4C5C4200F49DBE /* XCRemoteSwiftPackageReference "SwiftAlertView" */;
+			productName = SwiftAlertView;
 		};
 /* End XCSwiftPackageProductDependency section */
 

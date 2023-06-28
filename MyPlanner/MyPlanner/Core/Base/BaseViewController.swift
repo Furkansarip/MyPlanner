@@ -7,6 +7,7 @@
 
 import UIKit
 import MaterialActivityIndicator
+import SwiftAlertView
 
 class BaseViewController: UIViewController {
     weak var baseDelegate: BaseDelegate?
@@ -30,6 +31,15 @@ class BaseViewController: UIViewController {
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    func showAlert(title: String?, message: String?, backgroundColor: UIColor = .systemBackground) {
+        SwiftAlertView.show(title: title, message: message, buttonTitles: ["OK"]) { alertView in
+            alertView.backgroundColor = backgroundColor
+            alertView.titleLabel.textColor = .label
+            alertView.messageLabel.textColor = .label
+            alertView.tintColor = .red
+        }
     }
     
     @objc func addPage() {

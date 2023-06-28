@@ -8,7 +8,7 @@
 import UIKit
 
 class GoalsViewController: BaseViewController {
-
+    
     let tableView = UITableView()
     let viewModel = GoalsViewModel()
     override func viewDidLoad() {
@@ -17,6 +17,7 @@ class GoalsViewController: BaseViewController {
         title = "Your Goals"
         indicator.startAnimating()
         viewModel.delegate = self
+        baseDelegate = self
         configureTableView()
     }
     
@@ -39,11 +40,11 @@ class GoalsViewController: BaseViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
-
+    
 }
 
 extension GoalsViewController: UITableViewDelegate, UITableViewDataSource {
-   
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.goalsCount()
     }
@@ -54,17 +55,25 @@ extension GoalsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureGoalCell(goalModel: data)
         return cell
     }
-   
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        if editingStyle == .delete {
-            let data = viewModel.goals[indexPath.row].objectID
-            GoalsDataManager.shared.deleteGoal(objectID: data)
-            viewModel.goals.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let doneAction = UIContextualAction(style: .normal, title: "Done") { contextualAction, view, boolValue in
+            self.showAlert(title: "Congratzz!", message: "You are a focused person...")
         }
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { contextualAction, view, boolValue in
+            let data = self.viewModel.goals[indexPath.row].objectID
+            GoalsDataManager.shared.deleteGoal(objectID: data)
+            self.viewModel.goals.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        }
+        doneAction.backgroundColor = .systemGreen
+        let swipeActions = UISwipeActionsConfiguration(actions: [doneAction, deleteAction])
+        swipeActions.performsFirstActionWithFullSwipe = false
+        return swipeActions
     }
-   
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         120
     }
@@ -79,3 +88,14 @@ extension GoalsViewController: GoalsViewDelegate {
     }
 }
 
+extension GoalsViewController: BaseDelegate {
+    func getView(targetView: ChooseView) {
+        view.addSubview(targetView)
+        view.bringSubviewToFront(targetView)
+        targetView.parentView = self
+        NSLayoutConstraint.activate([
+            targetView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            targetView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+}
