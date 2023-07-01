@@ -59,6 +59,10 @@ extension GoalsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let doneAction = UIContextualAction(style: .normal, title: "Done") { contextualAction, view, boolValue in
             self.showAlert(title: "Congratzz!", message: "You are a focused person...")
+            let goalData = self.viewModel.goals[indexPath.row].gTitle
+            CompletedTasksDataManager.shared.addCompletedTask(completedTaskName: goalData ?? "GoalDummyData", completedType: .goal)
+            self.viewModel.goals.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { contextualAction, view, boolValue in

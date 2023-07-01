@@ -46,6 +46,7 @@
 		7401D28B2A47272B00F2C7CA /* GoalsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */; };
 		7401D28D2A488FC900F2C7CA /* BaseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D28C2A488FC900F2C7CA /* BaseEnum.swift */; };
 		74CB3DD02A4C5C4300F49DBE /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 74CB3DCF2A4C5C4300F49DBE /* SwiftAlertView */; };
+		74CB3DD22A4C666400F49DBE /* CompletedTasksDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB3DD12A4C666400F49DBE /* CompletedTasksDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		7401D2882A47269100F2C7CA /* GoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewModel.swift; sourceTree = "<group>"; };
 		7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDataManager.swift; sourceTree = "<group>"; };
 		7401D28C2A488FC900F2C7CA /* BaseEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEnum.swift; sourceTree = "<group>"; };
+		74CB3DD12A4C666400F49DBE /* CompletedTasksDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTasksDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +340,7 @@
 			children = (
 				7401D25E2A34964300F2C7CA /* ReminderDataManager.swift */,
 				7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */,
+				74CB3DD12A4C666400F49DBE /* CompletedTasksDataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				7401D2752A3F42E600F2C7CA /* PlannerButton.swift in Sources */,
 				7401D2732A3F35EE00F2C7CA /* ChooseViewController.swift in Sources */,
 				7401D1F72A24D6F800F2C7CA /* AppDelegate.swift in Sources */,
+				74CB3DD22A4C666400F49DBE /* CompletedTasksDataManager.swift in Sources */,
 				7401D2302A24DA3200F2C7CA /* LoginViewController.swift in Sources */,
 				7401D1F92A24D6F800F2C7CA /* SceneDelegate.swift in Sources */,
 				7401D2582A2E4D1B00F2C7CA /* PlannerTextField.swift in Sources */,
