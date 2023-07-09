@@ -35,7 +35,7 @@ final class AddViewModel: AddViewModelProtocol {
     let typeTextField = PlannerTextField()
     let descriptionTextField = PlannerTextView()
     let reminderTypeTextField = PlannerTextField()
-    let addButton = UIButton(type: .system)
+    let addButton = PlannerButton()
     let dateFormatter = DateFormatter()
     let typePicker = UIPickerView()
     let reminderPicker = UIPickerView()
@@ -65,21 +65,30 @@ final class AddViewModel: AddViewModelProtocol {
         addButton.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         addButton.translatesAutoresizingMaskIntoConstraints = false
+        addButton.customizeButton(color: .systemOrange, textColor: .label)
         pickerDoneAction()
         let padding: CGFloat = 8
+        let stackViewWidth = view.frame.width - padding
         NSLayoutConstraint.activate([
             titleTextField.heightAnchor.constraint(equalToConstant: 35),
             typeTextField.heightAnchor.constraint(equalToConstant: 35),
             dateTextField.heightAnchor.constraint(equalToConstant: 35),
             reminderTypeTextField.heightAnchor.constraint(equalToConstant: 35),
-            
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: padding),
+            descriptionTextField.heightAnchor.constraint(equalToConstant: 140),
+            addButton.widthAnchor.constraint(equalToConstant: 50),
+            /*stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 200),
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: padding),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -padding),
             
-            addButton.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+            addButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: padding),
             addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -padding)
+            //addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -30)*/
+            stackView.widthAnchor.constraint(equalToConstant: stackViewWidth),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            addButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: padding),
+            addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+           
             
         ])
     }

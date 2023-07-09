@@ -10,23 +10,26 @@ import UIKit
 class ChooseView: UIView {
 
     let popupView = UIView()
-    let goalButton = PlannerButton(type: .system)
-    let reminderButton = PlannerButton(type: .system)
+    let goalButton = PlannerButton()
+    let reminderButton = PlannerButton()
     let closeButton = UIButton(type: .custom)
     var parentView: UIViewController? = nil
+    let dividerView = UIView()
     let addPage = AddViewController()
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             goalButton,
+            dividerView,
             reminderButton
         ])
-        stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
         return stackView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .systemBackground
         configureViews()
         configureButtons()
     }
@@ -43,9 +46,14 @@ class ChooseView: UIView {
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         popupView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        dividerView.backgroundColor = .gray
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 200),
             widthAnchor.constraint(equalToConstant: 250),
+            dividerView.widthAnchor.constraint(equalToConstant: 5),
+            goalButton.heightAnchor.constraint(equalToConstant: 60),
+            reminderButton.heightAnchor.constraint(equalToConstant: 60),
+            
             popupView.centerXAnchor.constraint(equalTo: centerXAnchor),
             popupView.centerYAnchor.constraint(equalTo: centerYAnchor),
             popupView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -72),
@@ -59,18 +67,25 @@ class ChooseView: UIView {
             
             stackView.centerXAnchor.constraint(equalTo: popupView.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: popupView.centerYAnchor),
-            stackView.widthAnchor.constraint(equalToConstant: 150)
+            stackView.widthAnchor.constraint(equalToConstant: 200),
+            
             
         ])
         
     }
     
     private func configureButtons() {
+       
+        goalButton.setImage(UIImage(named: "arrow2.png"), for: .normal)
+        //goalButton.contentMode = .scaleAspectFit
         goalButton.setTitle("Goal", for: .normal)
+        goalButton.alignImageAndTitleVertically(padding: 5)
+        
         reminderButton.setTitle("Reminder", for: .normal)
+        reminderButton.setImage(UIImage(named: "colorfulClock.png"), for: .normal)
+        
         closeButton.setImage(UIImage(named: "close.png"), for: .normal)
-        goalButton.customizeButton(color: .gray, textColor: .systemGreen)
-        reminderButton.customizeButton(color: .gray, textColor: .systemIndigo)
+        
         popupView.layer.cornerRadius = 10
         closeButton.addTarget(self, action: #selector(popView), for: .touchUpInside)
         goalButton.addTarget(self, action: #selector(pushGoal), for: .touchUpInside)
