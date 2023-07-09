@@ -6,32 +6,68 @@
 //
 
 import UIKit
-
+import Charts
+import DGCharts
 class SummaryViewController: BaseViewController {
     
     let summaryTableView = UITableView(frame: .zero)
     let testView = UIView(frame: .zero)
+    let summaryChart = PieChartView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Summary"
         view.backgroundColor = .systemBackground
+        summaryChart.delegate = self
         configureTableView()
+        configureChart()
+    }
+    
+    func configureChart() {
+        summaryChart.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        let completedCount = CompletedTasksDataManager.shared.tastCount()
+        let activeGoals = GoalsDataManager.shared.goalCount()
+        let totalGoals = GoalsDataManager.shared.goalCount() + completedCount
+       /* var entries = [ChartDataEntry]()
+        var entries2 = [ChartDataEntry]()
+        let data1 = ChartDataEntry(x: 10, y: 20)
+        let data2 = ChartDataEntry(x: 10, y: 10)
+        
+        entries.append(data1)
+        entries.append(data2)
+        let set = PieChartDataSet(entries: entries)
+        set.colors = [NSUIColor.systemGreen, NSUIColor.systemRed]
+        set.accessibilityLabel = "f"
+        set.label = "Test"
+        let data = PieChartData(dataSet: set)
+        summaryChart.data = data
+         */
+        let totalGoal = PieChartDataEntry(value: Double(activeGoals), label: "Active")
+        let completedGoal = PieChartDataEntry(value: Double(completedCount), label: "Done")
+        let entries = [completedGoal, totalGoal]
+        let dataSet = PieChartDataSet(entries: entries, label: "")
+        dataSet.colors = [NSUIColor.systemGreen, NSUIColor.systemRed]
+        let data = PieChartData(dataSet: dataSet)
+        summaryChart.data = data
+        summaryChart.centerText = "Total Goal \(totalGoals)"
+        
     }
     
     private func configureTableView() {
         view.addSubview(summaryTableView)
+        view.addSubview(summaryChart)
         view.addSubview(testView)
         
         summaryTableView.dataSource = self
         summaryTableView.delegate = self
         summaryTableView.translatesAutoresizingMaskIntoConstraints = false
         testView.translatesAutoresizingMaskIntoConstraints = false
+        summaryChart.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            summaryTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            summaryTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            summaryTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            summaryTableView.bottomAnchor.constraint(equalTo: testView.topAnchor),
+            summaryChart.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            summaryChart.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            summaryChart.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            summaryChart.bottomAnchor.constraint(equalTo: testView.topAnchor),
             
             testView.heightAnchor.constraint(equalToConstant: 300),
             testView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -42,7 +78,7 @@ class SummaryViewController: BaseViewController {
     
 }
 
-extension SummaryViewController : UITableViewDelegate, UITableViewDataSource {
+extension SummaryViewController : UITableViewDelegate, UITableViewDataSource, ChartViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 10

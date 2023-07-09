@@ -45,4 +45,17 @@ final class CompletedTasksDataManager {
         }
         return []
     }
+    
+    func tastCount() -> Int {
+        let fetch = NSFetchRequest<NSManagedObject>(entityName: "CompletedTasks")
+         fetch.returnsObjectsAsFaults = false
+         do {
+             let tasks = try managedContext.fetch(fetch)
+             print(tasks.count)
+             return tasks.count
+         } catch {
+             print("Error")
+         }
+         return 0
+    }
 }
