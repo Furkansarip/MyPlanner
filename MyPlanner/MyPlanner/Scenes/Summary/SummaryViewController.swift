@@ -20,6 +20,9 @@ class SummaryViewController: BaseViewController {
         view.backgroundColor = .systemBackground
         summaryChart.delegate = self
         configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         configureChart()
     }
     
@@ -28,20 +31,7 @@ class SummaryViewController: BaseViewController {
         let completedCount = CompletedTasksDataManager.shared.tastCount()
         let activeGoals = GoalsDataManager.shared.goalCount()
         let totalGoals = GoalsDataManager.shared.goalCount() + completedCount
-       /* var entries = [ChartDataEntry]()
-        var entries2 = [ChartDataEntry]()
-        let data1 = ChartDataEntry(x: 10, y: 20)
-        let data2 = ChartDataEntry(x: 10, y: 10)
-        
-        entries.append(data1)
-        entries.append(data2)
-        let set = PieChartDataSet(entries: entries)
-        set.colors = [NSUIColor.systemGreen, NSUIColor.systemRed]
-        set.accessibilityLabel = "f"
-        set.label = "Test"
-        let data = PieChartData(dataSet: set)
-        summaryChart.data = data
-         */
+       
         let totalGoal = PieChartDataEntry(value: Double(activeGoals), label: "Active")
         let completedGoal = PieChartDataEntry(value: Double(completedCount), label: "Done")
         let entries = [completedGoal, totalGoal]
