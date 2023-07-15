@@ -20,10 +20,32 @@ final class PlannerButton: UIButton {
     }
     
     func customizeButton(color: UIColor, textColor: UIColor) {
-        layer.cornerRadius = 10
+        layer.cornerRadius = 6
         layer.borderWidth = 1
         backgroundColor = color
         titleColor(for: .focused)
         tintColor = textColor
     }
+}
+
+extension PlannerButton {
+    func alignImageAndTitleVertically(padding: CGFloat = 4.0) {
+            let imageSize = imageView!.frame.size
+            let titleSize = titleLabel!.frame.size
+            let totalHeight = imageSize.height + titleSize.height + padding
+
+            imageEdgeInsets = UIEdgeInsets(
+                top: -(totalHeight - imageSize.height),
+                left: 0,
+                bottom: 0,
+                right: -titleSize.width
+            )
+
+            titleEdgeInsets = UIEdgeInsets(
+                top: 0,
+                left: -imageSize.width,
+                bottom: -(totalHeight - titleSize.height),
+                right: 0
+            )
+        }
 }

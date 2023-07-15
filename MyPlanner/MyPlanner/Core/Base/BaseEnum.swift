@@ -15,3 +15,8 @@ enum BaseEnum: String, CaseIterable {
     case passion = "🫀 Passion"
     case other = "🔐 Other"
 }
+
+enum TaskType: String {
+    case reminder = "Reminder"
+    case goal = "Goal"
+}

@@ -31,22 +31,28 @@ class PlannerCell: UITableViewCell {
         
     }
     
+    override func prepareForReuse() {
+        cellImage.image = nil
+    }
+    
     func configureGoalCell(goalModel: Goals) {
         titleLabel.text = goalModel.gTitle
-        dateLabel.text = goalModel.gType
+        dateLabel.text = goalModel.gDate
         descriptionLabel.text = goalModel.gDescription
+        cellImage.layer.borderWidth = 1
+        
         let data:BaseEnum = BaseEnum(rawValue: goalModel.gType ?? "") ?? BaseEnum.other
         switch data {
         case .money:
-            cellImage.backgroundColor = .red
+            cellImage.image = UIImage(named: "money.jpg")
         case .health:
-            cellImage.backgroundColor = .blue
+            cellImage.image = UIImage(systemName: "heart.fill")
         case .life:
-            cellImage.backgroundColor = .systemPink
+            cellImage.image = UIImage(systemName: "house.fill")
         case .personal:
-            cellImage.backgroundColor = .purple
+            cellImage.image = UIImage(named: "gym.jpg")
         case .passion:
-            cellImage.backgroundColor = .green
+            cellImage.image = UIImage(named: "passion.jpg")
         case .other:
             cellImage.backgroundColor = .cyan
         }

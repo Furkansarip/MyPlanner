@@ -45,6 +45,9 @@
 		7401D2892A47269100F2C7CA /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2882A47269100F2C7CA /* GoalsViewModel.swift */; };
 		7401D28B2A47272B00F2C7CA /* GoalsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */; };
 		7401D28D2A488FC900F2C7CA /* BaseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D28C2A488FC900F2C7CA /* BaseEnum.swift */; };
+		74CB3DD02A4C5C4300F49DBE /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 74CB3DCF2A4C5C4300F49DBE /* SwiftAlertView */; };
+		74CB3DD22A4C666400F49DBE /* CompletedTasksDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB3DD12A4C666400F49DBE /* CompletedTasksDataManager.swift */; };
+		74CB3DDA2A528F6300F49DBE /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 74CB3DD92A528F6300F49DBE /* DGCharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,7 @@
 		7401D2882A47269100F2C7CA /* GoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewModel.swift; sourceTree = "<group>"; };
 		7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDataManager.swift; sourceTree = "<group>"; };
 		7401D28C2A488FC900F2C7CA /* BaseEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEnum.swift; sourceTree = "<group>"; };
+		74CB3DD12A4C666400F49DBE /* CompletedTasksDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTasksDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74CB3DD02A4C5C4300F49DBE /* SwiftAlertView in Frameworks */,
+				74CB3DDA2A528F6300F49DBE /* DGCharts in Frameworks */,
 				7401D2692A34C04100F2C7CA /* MaterialActivityIndicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +342,7 @@
 			children = (
 				7401D25E2A34964300F2C7CA /* ReminderDataManager.swift */,
 				7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */,
+				74CB3DD12A4C666400F49DBE /* CompletedTasksDataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -423,6 +430,8 @@
 			name = MyPlanner;
 			packageProductDependencies = (
 				7401D2682A34C04100F2C7CA /* MaterialActivityIndicator */,
+				74CB3DCF2A4C5C4300F49DBE /* SwiftAlertView */,
+				74CB3DD92A528F6300F49DBE /* DGCharts */,
 			);
 			productName = MyPlanner;
 			productReference = 7401D1F32A24D6F800F2C7CA /* MyPlanner.app */;
@@ -498,6 +507,8 @@
 			mainGroup = 7401D1EA2A24D6F800F2C7CA;
 			packageReferences = (
 				7401D2672A34C04100F2C7CA /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */,
+				74CB3DCE2A4C5C4200F49DBE /* XCRemoteSwiftPackageReference "SwiftAlertView" */,
+				74CB3DD82A528F6300F49DBE /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 7401D1F42A24D6F800F2C7CA /* Products */;
 			projectDirPath = "";
@@ -560,6 +571,7 @@
 				7401D2752A3F42E600F2C7CA /* PlannerButton.swift in Sources */,
 				7401D2732A3F35EE00F2C7CA /* ChooseViewController.swift in Sources */,
 				7401D1F72A24D6F800F2C7CA /* AppDelegate.swift in Sources */,
+				74CB3DD22A4C666400F49DBE /* CompletedTasksDataManager.swift in Sources */,
 				7401D2302A24DA3200F2C7CA /* LoginViewController.swift in Sources */,
 				7401D1F92A24D6F800F2C7CA /* SceneDelegate.swift in Sources */,
 				7401D2582A2E4D1B00F2C7CA /* PlannerTextField.swift in Sources */,
@@ -748,7 +760,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -776,7 +788,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -916,6 +928,22 @@
 				kind = branch;
 			};
 		};
+		74CB3DCE2A4C5C4200F49DBE /* XCRemoteSwiftPackageReference "SwiftAlertView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dinhquan/SwiftAlertView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		74CB3DD82A528F6300F49DBE /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -923,6 +951,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7401D2672A34C04100F2C7CA /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */;
 			productName = MaterialActivityIndicator;
+		};
+		74CB3DCF2A4C5C4300F49DBE /* SwiftAlertView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74CB3DCE2A4C5C4200F49DBE /* XCRemoteSwiftPackageReference "SwiftAlertView" */;
+			productName = SwiftAlertView;
+		};
+		74CB3DD92A528F6300F49DBE /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74CB3DD82A528F6300F49DBE /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 
