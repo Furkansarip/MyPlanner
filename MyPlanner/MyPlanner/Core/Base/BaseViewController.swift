@@ -43,20 +43,6 @@ class BaseViewController: UIViewController {
     }
     
     @objc func addPage() {
-       /* view.backgroundColor = .clear
-        // 2
-        let blurEffect = UIBlurEffect(style: .regular)
-        // 3
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        // 4
-        blurView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(blurView)
-        NSLayoutConstraint.activate([
-          blurView.topAnchor.constraint(equalTo: view.topAnchor),
-          blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-          blurView.heightAnchor.constraint(equalTo: view.heightAnchor),
-          blurView.widthAnchor.constraint(equalTo: view.widthAnchor)
-        ]) */
         targetViewController()
     }
 }

@@ -10,7 +10,8 @@ import UIKit
 class ChooseView: UIView {
 
     let popupView = UIView()
-    let goalButton = PlannerButton()
+    let goalButton = PlannerButton(type: .custom)
+    let testButton = UIButton(type: .system)
     let reminderButton = PlannerButton()
     let closeButton = UIButton(type: .custom)
     var parentView: UIViewController? = nil
@@ -26,6 +27,13 @@ class ChooseView: UIView {
         stackView.distribution = .fillProportionally
         return stackView
     }()
+    var imageView: UIImageView = {
+            let imageView = UIImageView(frame: .zero)
+            imageView.image = UIImage(named: "map")
+            imageView.contentMode = .scaleToFill
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            return imageView
+        }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,52 +47,44 @@ class ChooseView: UIView {
     }
     
     func configureViews() {
-        addSubview(popupView)
-        popupView.addSubview(stackView)
-        addSubview(closeButton)
+        addSubview(imageView)
+        addSubview(goalButton)
+        addSubview(reminderButton)
         translatesAutoresizingMaskIntoConstraints = false
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
-        popupView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        dividerView.backgroundColor = .gray
+        goalButton.translatesAutoresizingMaskIntoConstraints = false
+        reminderButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 200),
+            heightAnchor.constraint(equalToConstant: 250),
             widthAnchor.constraint(equalToConstant: 250),
-            dividerView.widthAnchor.constraint(equalToConstant: 5),
-            goalButton.heightAnchor.constraint(equalToConstant: 60),
-            reminderButton.heightAnchor.constraint(equalToConstant: 60),
-            
-            popupView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            popupView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            popupView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -72),
-            popupView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 72),
-            popupView.heightAnchor.constraint(equalToConstant: 150),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            closeButton.topAnchor.constraint(equalTo: topAnchor,constant: 10),
-            closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            closeButton.widthAnchor.constraint(equalToConstant: 50),
-            closeButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            stackView.centerXAnchor.constraint(equalTo: popupView.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: popupView.centerYAnchor),
-            stackView.widthAnchor.constraint(equalToConstant: 200),
-            
-            
         ])
         
     }
     
     private func configureButtons() {
-       
-        goalButton.setImage(UIImage(named: "arrow2.png"), for: .normal)
-        goalButton.alignImageAndTitleVertically(padding: 5)
         goalButton.setTitle("Goal", for: .normal)
-        
+        goalButton.titleLabel?.font = ThemeFont.bold(ofSize: 24)
         reminderButton.setTitle("Reminder", for: .normal)
-        reminderButton.setImage(UIImage(named: "colorfulClock.png"), for: .normal)
-        
+        reminderButton.titleLabel?.font = ThemeFont.bold(ofSize: 24)
         closeButton.setImage(UIImage(named: "close.png"), for: .normal)
-        
+        NSLayoutConstraint.activate([
+            goalButton.heightAnchor.constraint(equalToConstant: 60),
+            goalButton.widthAnchor.constraint(equalToConstant: 160),
+            goalButton.topAnchor.constraint(equalTo: topAnchor,constant: 14),
+            goalButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            reminderButton.heightAnchor.constraint(equalToConstant: 60),
+            reminderButton.widthAnchor.constraint(equalToConstant: 160),
+            reminderButton.topAnchor.constraint(equalTo: goalButton.bottomAnchor,constant: 32),
+            reminderButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            
+        ])
         popupView.layer.cornerRadius = 10
         closeButton.addTarget(self, action: #selector(popView), for: .touchUpInside)
         goalButton.addTarget(self, action: #selector(pushGoal), for: .touchUpInside)
@@ -93,7 +93,6 @@ class ChooseView: UIView {
     
     @objc func popView() {
         self.removeFromSuperview()
-        print("hello")
     }
     
     @objc func pushGoal() {

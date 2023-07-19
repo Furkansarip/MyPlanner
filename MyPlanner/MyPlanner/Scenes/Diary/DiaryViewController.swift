@@ -7,11 +7,11 @@
 
 import UIKit
 
-class DiaryViewController: UIViewController {
+class DiaryViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        title = "Diary"
     }
 
 }
