@@ -40,7 +40,7 @@ final class AddViewModel: AddViewModelProtocol {
     let typePicker = UIPickerView()
     let reminderPicker = UIPickerView()
     let datePicker = UIDatePicker()
-    let isReminderPage = false
+    var isReminderPage = false
     private lazy var stackView: UIStackView = {
       let stackView = UIStackView(arrangedSubviews: [
       titleTextField,
@@ -115,6 +115,7 @@ final class AddViewModel: AddViewModelProtocol {
             let date = dateTextField.text
             guard let convertedDate = date?.toDate() else { return }
             setReminder(title: titleTextField.text!, body: "description", targetDate: convertedDate)
+            print("hello")
             delegate?.popController()
         } else {
             GoalsDataManager.shared.saveGoal(title: titleTextField.text!,

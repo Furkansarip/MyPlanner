@@ -24,13 +24,6 @@ class PlannerCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configureReminderCell(reminderModel: Reminders) {
-        titleLabel.text = reminderModel.rTitle
-        dateLabel.text = reminderModel.rDate
-        descriptionLabel.text = reminderModel.rDescription
-        
-    }
-    
     override func prepareForReuse() {
         cellImage.image = nil
     }
@@ -56,7 +49,28 @@ class PlannerCell: UITableViewCell {
         case .other:
             cellImage.backgroundColor = .cyan
         }
-        
-        
+    }
+    
+    func configureReminderCell(reminderModel: Reminders) {
+        titleLabel.text = reminderModel.rTitle
+        dateLabel.text = reminderModel.rDate
+        descriptionLabel.text = reminderModel.rDescription
+        cellImage.layer.borderWidth = 1
+        print(reminderModel.rType)
+        let data:BaseEnum = BaseEnum(rawValue: reminderModel.rType ?? "") ?? BaseEnum.other
+        switch data {
+        case .money:
+            cellImage.image = UIImage(named: "money.jpg")
+        case .health:
+            cellImage.image = UIImage(systemName: "heart.fill")
+        case .life:
+            cellImage.image = UIImage(systemName: "house.fill")
+        case .personal:
+            cellImage.image = UIImage(named: "gym.jpg")
+        case .passion:
+            cellImage.image = UIImage(named: "passion.jpg")
+        case .other:
+            cellImage.backgroundColor = .cyan
+        }
     }
 }

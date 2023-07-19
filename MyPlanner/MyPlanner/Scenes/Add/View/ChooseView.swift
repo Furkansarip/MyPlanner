@@ -77,9 +77,8 @@ class ChooseView: UIView {
     private func configureButtons() {
        
         goalButton.setImage(UIImage(named: "arrow2.png"), for: .normal)
-        //goalButton.contentMode = .scaleAspectFit
-        goalButton.setTitle("Goal", for: .normal)
         goalButton.alignImageAndTitleVertically(padding: 5)
+        goalButton.setTitle("Goal", for: .normal)
         
         reminderButton.setTitle("Reminder", for: .normal)
         reminderButton.setImage(UIImage(named: "colorfulClock.png"), for: .normal)
@@ -98,14 +97,14 @@ class ChooseView: UIView {
     }
     
     @objc func pushGoal() {
-        addPage.isReminderPage = false
+        addPage.viewModel.isReminderPage = false
         parentView?.navigationController?.pushViewController(addPage, animated: false)
         self.removeFromSuperview()
         
     }
     
     @objc func pushReminder() {
-        addPage.isReminderPage = true
+        addPage.viewModel.isReminderPage = true
         parentView?.navigationController?.pushViewController(addPage, animated: false)
         self.removeFromSuperview()
         
