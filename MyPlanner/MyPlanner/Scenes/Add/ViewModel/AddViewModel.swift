@@ -40,6 +40,7 @@ final class AddViewModel: AddViewModelProtocol {
     let typePicker = UIPickerView()
     let reminderPicker = UIPickerView()
     let datePicker = UIDatePicker()
+    let imageView = UIImageView()
     var isReminderPage = false
     private lazy var stackView: UIStackView = {
       let stackView = UIStackView(arrangedSubviews: [
@@ -55,27 +56,32 @@ final class AddViewModel: AddViewModelProtocol {
     }()
     
     func loadUI(view: UIView) {
+        view.addSubview(imageView)
         view.addSubview(stackView)
         view.addSubview(addButton)
-        titleTextField.placeholder = "Title"
-        typeTextField.placeholder = "Type"
-        dateTextField.placeholder = "Date"
-        reminderTypeTextField.placeholder = "Reminder Time"
+        imageView.image = UIImage(named: "reminder2")
         addButton.setTitle("Add", for: .normal)
         addButton.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         addButton.translatesAutoresizingMaskIntoConstraints = false
-        addButton.customizeButton(color: .systemOrange, textColor: .label)
+        addButton.customizeButton(color: .systemIndigo, textColor: .label)
+        titleTextField.setupTextField(placeholder: "Title")
+        typeTextField.setupTextField(placeholder: "Choose a Type")
+        dateTextField.setupTextField(placeholder: "Date")
+        reminderTypeTextField.setupTextField(placeholder: "Timer")
         pickerDoneAction()
         let padding: CGFloat = 8
         let stackViewWidth = view.frame.width - padding
         NSLayoutConstraint.activate([
-            titleTextField.heightAnchor.constraint(equalToConstant: 35),
-            typeTextField.heightAnchor.constraint(equalToConstant: 35),
-            dateTextField.heightAnchor.constraint(equalToConstant: 35),
-            reminderTypeTextField.heightAnchor.constraint(equalToConstant: 35),
+            titleTextField.heightAnchor.constraint(equalToConstant: 50),
+            typeTextField.heightAnchor.constraint(equalToConstant: 50),
+            dateTextField.heightAnchor.constraint(equalToConstant: 50),
+            reminderTypeTextField.heightAnchor.constraint(equalToConstant: 50),
             descriptionTextField.heightAnchor.constraint(equalToConstant: 140),
-            addButton.widthAnchor.constraint(equalToConstant: 50),
+            addButton.widthAnchor.constraint(equalToConstant: stackViewWidth - 60),
+            
+            imageView.heightAnchor.constraint(equalToConstant: 200),
             /*stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 200),
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: padding),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -padding),
@@ -83,9 +89,13 @@ final class AddViewModel: AddViewModelProtocol {
             addButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: padding),
             addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             //addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -30)*/
-            stackView.widthAnchor.constraint(equalToConstant: stackViewWidth),
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+
+            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            stackView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
             addButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: padding),
             addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
            
