@@ -59,7 +59,8 @@ final class AddViewModel: AddViewModelProtocol {
         view.addSubview(imageView)
         view.addSubview(stackView)
         view.addSubview(addButton)
-        imageView.image = UIImage(named: "reminder2")
+        imageView.image = UIImage(named: "reminder")
+        imageView.contentMode = .scaleAspectFit
         addButton.setTitle("Add", for: .normal)
         addButton.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
         imageView.translatesAutoresizingMaskIntoConstraints = false
