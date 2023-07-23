@@ -20,11 +20,12 @@ final class PlannerButton: UIButton {
     }
     
     func customizeButton(color: UIColor, textColor: UIColor) {
-        layer.cornerRadius = 6
+        layer.cornerRadius = 10
         layer.borderWidth = 1
         backgroundColor = color
         titleColor(for: .focused)
         tintColor = textColor
+        titleLabel?.font = ThemeFont.bold(ofSize: 24)
     }
 }
 

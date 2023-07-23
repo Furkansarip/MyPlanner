@@ -36,10 +36,12 @@ class SummaryViewController: BaseViewController {
         let completedGoal = PieChartDataEntry(value: Double(completedCount), label: "Done")
         let entries = [completedGoal, totalGoal]
         let dataSet = PieChartDataSet(entries: entries, label: "")
-        dataSet.colors = [NSUIColor.systemGreen, NSUIColor.systemRed]
+        dataSet.colors = [NSUIColor.systemIndigo, NSUIColor.systemOrange]
         let data = PieChartData(dataSet: dataSet)
         summaryChart.data = data
+        summaryChart.holeColor = .secondarySystemFill
         summaryChart.centerText = "Total Goal \(totalGoals)"
+        
         
     }
     

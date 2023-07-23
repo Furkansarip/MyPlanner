@@ -78,7 +78,9 @@ extension ReminderViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
             
         }
+        
         doneAction.backgroundColor = .systemGreen
+        
         let swipeActions = UISwipeActionsConfiguration(actions: [doneAction, deleteAction])
         swipeActions.performsFirstActionWithFullSwipe = false
         return swipeActions

@@ -37,7 +37,7 @@ class ChooseView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemBackground
+        backgroundColor = .clear
         configureViews()
         configureButtons()
     }
@@ -53,7 +53,7 @@ class ChooseView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         goalButton.translatesAutoresizingMaskIntoConstraints = false
         reminderButton.translatesAutoresizingMaskIntoConstraints = false
-        
+        imageView.contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 250),
             widthAnchor.constraint(equalToConstant: 250),

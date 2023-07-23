@@ -45,6 +45,7 @@
 		7401D2892A47269100F2C7CA /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D2882A47269100F2C7CA /* GoalsViewModel.swift */; };
 		7401D28B2A47272B00F2C7CA /* GoalsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */; };
 		7401D28D2A488FC900F2C7CA /* BaseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D28C2A488FC900F2C7CA /* BaseEnum.swift */; };
+		74A00C172A6BFD0800052E43 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A00C162A6BFD0800052E43 /* UITextField+Ext.swift */; };
 		74CB3DD02A4C5C4300F49DBE /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 74CB3DCF2A4C5C4300F49DBE /* SwiftAlertView */; };
 		74CB3DD22A4C666400F49DBE /* CompletedTasksDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB3DD12A4C666400F49DBE /* CompletedTasksDataManager.swift */; };
 		74CB3DDA2A528F6300F49DBE /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 74CB3DD92A528F6300F49DBE /* DGCharts */; };
@@ -109,6 +110,7 @@
 		7401D2882A47269100F2C7CA /* GoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewModel.swift; sourceTree = "<group>"; };
 		7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDataManager.swift; sourceTree = "<group>"; };
 		7401D28C2A488FC900F2C7CA /* BaseEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEnum.swift; sourceTree = "<group>"; };
+		74A00C162A6BFD0800052E43 /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		74CB3DD12A4C666400F49DBE /* CompletedTasksDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTasksDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -333,6 +335,7 @@
 			children = (
 				7401D2552A2CAA5700F2C7CA /* UIColor+Ext.swift */,
 				7401D26C2A35E4A300F2C7CA /* String+Ext.swift */,
+				74A00C162A6BFD0800052E43 /* UITextField+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				7401D2792A4354D700F2C7CA /* ChooseView.swift in Sources */,
 				7401D27E2A46C16200F2C7CA /* DiaryViewController.swift in Sources */,
 				7401D1FB2A24D6F800F2C7CA /* ViewController.swift in Sources */,
+				74A00C172A6BFD0800052E43 /* UITextField+Ext.swift in Sources */,
 				7401D2832A46C8E500F2C7CA /* PlannerCell.swift in Sources */,
 				7401D2442A266C0300F2C7CA /* SummaryViewController.swift in Sources */,
 				7401D2752A3F42E600F2C7CA /* PlannerButton.swift in Sources */,
