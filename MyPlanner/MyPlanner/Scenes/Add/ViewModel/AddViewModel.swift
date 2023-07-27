@@ -41,7 +41,10 @@ final class AddViewModel: AddViewModelProtocol {
     let reminderPicker = UIPickerView()
     let datePicker = UIDatePicker()
     let imageView = UIImageView()
+    var imageName: String?
     var isReminderPage = false
+    let scrollView = UIScrollView()
+    let contentView = UIView()
     private lazy var stackView: UIStackView = {
       let stackView = UIStackView(arrangedSubviews: [
       titleTextField,
@@ -55,22 +58,39 @@ final class AddViewModel: AddViewModelProtocol {
         return stackView
     }()
     
-    func loadUI(view: UIView) {
-        view.addSubview(imageView)
-        view.addSubview(stackView)
-        view.addSubview(addButton)
-        imageView.image = UIImage(named: "reminder")
-        imageView.contentMode = .scaleAspectFit
+    func configureButtons() {
         addButton.setTitle("Add", for: .normal)
         addButton.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.customizeButton(color: .systemIndigo, textColor: .label)
+    }
+    
+    func configureImageViews() {
+        imageView.image = UIImage(named: imageName ?? "")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func configureTextFields() {
         titleTextField.setupTextField(placeholder: "Title")
         typeTextField.setupTextField(placeholder: "Choose a Type")
         dateTextField.setupTextField(placeholder: "Date")
         reminderTypeTextField.setupTextField(placeholder: "Timer")
+    }
+    
+    func loadUI(view: UIView) {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        view.addSubview(imageView)
+        view.addSubview(stackView)
+        view.addSubview(addButton)
+        configureButtons()
+        configureImageViews()
+        configureTextFields()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        let contentHeight: CGFloat = 700
         pickerDoneAction()
         let padding: CGFloat = 8
         let stackViewWidth = view.frame.width - padding
@@ -82,17 +102,22 @@ final class AddViewModel: AddViewModelProtocol {
             descriptionTextField.heightAnchor.constraint(equalToConstant: 140),
             addButton.widthAnchor.constraint(equalToConstant: stackViewWidth - 60),
             
-            imageView.heightAnchor.constraint(equalToConstant: 200),
-            /*stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 200),
-            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: padding),
-            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -padding),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
-            addButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: padding),
-            addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            //addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -30)*/
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: contentHeight),
+            
+            imageView.heightAnchor.constraint(equalToConstant: 200),
+            imageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            imageView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
 
             stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             stackView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),

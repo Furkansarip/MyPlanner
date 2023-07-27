@@ -18,7 +18,7 @@ final class PlannerTextView: UITextView {
         self.font = ThemeFont.regular(ofSize: 18)
         self.autocorrectionType = .no
         self.text = "Enter a description"
-        self.backgroundColor = .tertiarySystemFill
+        self.backgroundColor = .secondarySystemFill
         self.textColor = .secondaryLabel
         self.font = UIFont.preferredFont(forTextStyle: .body)
         self.layer.cornerRadius = 20
