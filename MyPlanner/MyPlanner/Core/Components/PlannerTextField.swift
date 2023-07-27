@@ -27,11 +27,12 @@ final class PlannerTextField: UITextField {
         layer.borderWidth = 1
         layer.cornerRadius = 10
         layer.borderColor = UIColor.systemIndigo.cgColor
-        layer.shadowOffset = CGSize(width: 15, height: 15)
+        //layer.shadowOffset = CGSize(width: 15, height: 15)
         tintColor = .secondaryLabel
         attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel])
         font = ThemeFont.regular(ofSize: 18)
         autocorrectionType = .no
+        backgroundColor = .secondarySystemFill
         
     }
     

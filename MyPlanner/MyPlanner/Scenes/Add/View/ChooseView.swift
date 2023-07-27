@@ -97,6 +97,7 @@ class ChooseView: UIView {
     
     @objc func pushGoal() {
         addPage.viewModel.isReminderPage = false
+        addPage.viewModel.imageName = "goal"
         parentView?.navigationController?.pushViewController(addPage, animated: false)
         self.removeFromSuperview()
         
@@ -104,6 +105,7 @@ class ChooseView: UIView {
     
     @objc func pushReminder() {
         addPage.viewModel.isReminderPage = true
+        addPage.viewModel.imageName = "reminder"
         parentView?.navigationController?.pushViewController(addPage, animated: false)
         self.removeFromSuperview()
         
