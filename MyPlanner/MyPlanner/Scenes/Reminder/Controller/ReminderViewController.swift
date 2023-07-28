@@ -65,8 +65,6 @@ extension ReminderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let doneAction = UIContextualAction(style: .normal, title: "Done") { contextualAction, view, boolValue in
             self.showAlert(title: "Congratz!", message: "Right ON Time")
-            let reminderData = self.viewModel.reminders[indexPath.row].rTitle
-            //CompletedTasksDataManager.shared.addCompletedTask(completedTaskName: reminderData ?? "ReminderDummyData", completedType: .reminder)
             self.viewModel.reminders.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

@@ -42,6 +42,10 @@ final class AddViewModel: AddViewModelProtocol {
     let datePicker = UIDatePicker()
     let imageView = UIImageView()
     var imageName: String?
+    var textFieldHeight: CGFloat?
+    var textViewHeight: CGFloat?
+    var defaultTextFieldHeight: CGFloat = 50
+    var defaultTextViewHeight: CGFloat = 140
     var isReminderPage = false
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -92,15 +96,20 @@ final class AddViewModel: AddViewModelProtocol {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         let contentHeight: CGFloat = 700
         pickerDoneAction()
+        if view.frame.height < contentHeight {
+            textFieldHeight = 37
+            textViewHeight = 95
+        }
         let padding: CGFloat = 8
-        let stackViewWidth = view.frame.width - padding
+        
+        let viewWidth = view.frame.width - padding
         NSLayoutConstraint.activate([
-            titleTextField.heightAnchor.constraint(equalToConstant: 50),
-            typeTextField.heightAnchor.constraint(equalToConstant: 50),
-            dateTextField.heightAnchor.constraint(equalToConstant: 50),
-            reminderTypeTextField.heightAnchor.constraint(equalToConstant: 50),
-            descriptionTextField.heightAnchor.constraint(equalToConstant: 140),
-            addButton.widthAnchor.constraint(equalToConstant: stackViewWidth - 60),
+            titleTextField.heightAnchor.constraint(equalToConstant: textFieldHeight ?? defaultTextFieldHeight),
+            typeTextField.heightAnchor.constraint(equalToConstant: textFieldHeight ?? defaultTextFieldHeight),
+            dateTextField.heightAnchor.constraint(equalToConstant: textFieldHeight ?? defaultTextFieldHeight),
+            reminderTypeTextField.heightAnchor.constraint(equalToConstant: textFieldHeight ?? defaultTextFieldHeight),
+            descriptionTextField.heightAnchor.constraint(equalToConstant: textViewHeight ?? defaultTextViewHeight),
+            addButton.widthAnchor.constraint(equalToConstant: viewWidth - defaultTextFieldHeight),
             
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -116,8 +125,8 @@ final class AddViewModel: AddViewModelProtocol {
             
             imageView.heightAnchor.constraint(equalToConstant: 200),
             imageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            imageView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            imageView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: padding * 2),
+            imageView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -(padding * 2)),
 
             stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             stackView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
