@@ -46,6 +46,7 @@
 		7401D28B2A47272B00F2C7CA /* GoalsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */; };
 		7401D28D2A488FC900F2C7CA /* BaseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D28C2A488FC900F2C7CA /* BaseEnum.swift */; };
 		74A00C172A6BFD0800052E43 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A00C162A6BFD0800052E43 /* UITextField+Ext.swift */; };
+		74A00C232A743BD200052E43 /* CustomizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A00C222A743BD200052E43 /* CustomizedTabBar.swift */; };
 		74CB3DD02A4C5C4300F49DBE /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 74CB3DCF2A4C5C4300F49DBE /* SwiftAlertView */; };
 		74CB3DD22A4C666400F49DBE /* CompletedTasksDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB3DD12A4C666400F49DBE /* CompletedTasksDataManager.swift */; };
 		74CB3DDA2A528F6300F49DBE /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 74CB3DD92A528F6300F49DBE /* DGCharts */; };
@@ -111,6 +112,7 @@
 		7401D28A2A47272B00F2C7CA /* GoalsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDataManager.swift; sourceTree = "<group>"; };
 		7401D28C2A488FC900F2C7CA /* BaseEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEnum.swift; sourceTree = "<group>"; };
 		74A00C162A6BFD0800052E43 /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
+		74A00C222A743BD200052E43 /* CustomizedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedTabBar.swift; sourceTree = "<group>"; };
 		74CB3DD12A4C666400F49DBE /* CompletedTasksDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTasksDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -296,6 +298,7 @@
 		7401D2482A2B4B4B00F2C7CA /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				74A00C222A743BD200052E43 /* CustomizedTabBar.swift */,
 				7401D2492A2B4B5500F2C7CA /* BaseViewController.swift */,
 				7401D27A2A4368D500F2C7CA /* BaseProtocol.swift */,
 				7401D28C2A488FC900F2C7CA /* BaseEnum.swift */,
@@ -584,6 +587,7 @@
 				7401D23B2A25BFB100F2C7CA /* MainViewController.swift in Sources */,
 				7401D26D2A35E4A300F2C7CA /* String+Ext.swift in Sources */,
 				7401D28D2A488FC900F2C7CA /* BaseEnum.swift in Sources */,
+				74A00C232A743BD200052E43 /* CustomizedTabBar.swift in Sources */,
 				7401D2662A34B56D00F2C7CA /* ReminderViewModel.swift in Sources */,
 				7401D2562A2CAA5700F2C7CA /* UIColor+Ext.swift in Sources */,
 				7401D24E2A2B555400F2C7CA /* AddViewController.swift in Sources */,

@@ -56,7 +56,6 @@ class PlannerCell: UITableViewCell {
         dateLabel.text = reminderModel.rDate
         descriptionLabel.text = reminderModel.rDescription
         cellImage.layer.borderWidth = 1
-        print(reminderModel.rType)
         let data:BaseEnum = BaseEnum(rawValue: reminderModel.rType ?? "") ?? BaseEnum.other
         switch data {
         case .money:
