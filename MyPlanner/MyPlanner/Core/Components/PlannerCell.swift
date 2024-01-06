@@ -33,7 +33,7 @@ class PlannerCell: UITableViewCell {
         dateLabel.text = goalModel.gDate
         descriptionLabel.text = goalModel.gDescription
         cellImage.layer.borderWidth = 1
-        
+        titleLabel.numberOfLines = 2
         let data:BaseEnum = BaseEnum(rawValue: goalModel.gType ?? "") ?? BaseEnum.other
         switch data {
         case .money:

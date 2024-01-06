@@ -42,7 +42,7 @@ class MainViewController: UITabBarController {
         self.view.insertSubview(button, aboveSubview: self.tabBar)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 50).isActive = true
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         button.topAnchor.constraint(equalTo: self.tabBar.topAnchor, constant: -31).isActive = true
        

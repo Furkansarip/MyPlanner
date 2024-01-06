@@ -14,10 +14,6 @@ class CustomizedTabBar: UITabBar {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = createPath()
         shapeLayer.fillColor = UIColor.systemBackground.cgColor
-        // uncomment below if wants to add a line
-      shapeLayer.strokeColor = UIColor.lightGray.cgColor
-      shapeLayer.lineWidth = 1.0
-        
         //The below 4 lines are for shadow above the bar. you can skip them if you do not want a shadow
         shapeLayer.shadowOffset = CGSize(width:0, height:0)
         shapeLayer.shadowRadius = 10

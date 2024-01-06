@@ -160,7 +160,6 @@ final class AddViewModel: AddViewModelProtocol {
             let date = dateTextField.text
             guard let convertedDate = date?.toDate() else { return }
             setReminder(title: titleTextField.text!, body: "description", targetDate: convertedDate)
-            print("hello")
             delegate?.popController()
         } else {
             GoalsDataManager.shared.saveGoal(title: titleTextField.text!,

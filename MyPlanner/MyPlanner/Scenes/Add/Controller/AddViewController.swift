@@ -15,9 +15,9 @@ class AddViewController: UIViewController {
         viewModel.delegate = self
         viewModel.configurePicker(delegate: self)
         viewModel.loadUI(view: view)
-        title = "Add Page"
-        
+        title = "Add Reminder"
         if viewModel.isReminderPage == false {
+            title = "Add Goal"
             viewModel.reminderTypeTextField.removeFromSuperview()
         }
     }

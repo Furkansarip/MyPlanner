@@ -32,7 +32,7 @@ final class PlannerTextField: UITextField {
         attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel])
         font = ThemeFont.regular(ofSize: 18)
         autocorrectionType = .no
-        backgroundColor = .secondarySystemFill
+        
         
     }
     
